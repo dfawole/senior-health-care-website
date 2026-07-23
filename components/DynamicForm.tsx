@@ -17,6 +17,7 @@ type DynamicFormProps = {
   action: string;
   submitLabel: string;
   successMessage: string;
+  defaultValues?: Record<string, string>;
   children?: ReactNode;
 };
 
@@ -34,9 +35,10 @@ const fieldClasses =
 type FormFieldProps = {
   name: string;
   field: FormFieldConfig;
+  defaultValue?: string;
 };
 
-export function FormField({ name, field }: FormFieldProps) {
+export function FormField({ name, field, defaultValue }: FormFieldProps) {
   return (
     <label className="text-text flex flex-col gap-1 text-sm font-medium">
       {field.label}
@@ -44,7 +46,7 @@ export function FormField({ name, field }: FormFieldProps) {
         <select
           name={name}
           required={field.required}
-          defaultValue=""
+          defaultValue={defaultValue ?? ""}
           className={fieldClasses}
         >
           <option value="" disabled>
@@ -61,6 +63,7 @@ export function FormField({ name, field }: FormFieldProps) {
           name={name}
           required={field.required}
           rows={4}
+          defaultValue={defaultValue}
           className={fieldClasses}
         />
       ) : (
@@ -68,6 +71,7 @@ export function FormField({ name, field }: FormFieldProps) {
           type={INPUT_TYPE_OVERRIDES[name] ?? "text"}
           name={name}
           required={field.required}
+          defaultValue={defaultValue}
           className={fieldClasses}
         />
       )}
@@ -80,6 +84,7 @@ export default function DynamicForm({
   action,
   submitLabel,
   successMessage,
+  defaultValues,
   children,
 }: DynamicFormProps) {
   const [status, setStatus] = useState<SubmitStatus>("idle");
@@ -123,7 +128,12 @@ export default function DynamicForm({
       className="mx-auto flex max-w-xl flex-col gap-4"
     >
       {Object.entries(fields).map(([name, field]) => (
-        <FormField key={name} name={name} field={field} />
+        <FormField
+          key={name}
+          name={name}
+          field={field}
+          defaultValue={defaultValues?.[name]}
+        />
       ))}
 
       {children}

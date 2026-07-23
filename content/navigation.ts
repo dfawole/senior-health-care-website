@@ -21,6 +21,7 @@ export const serviceLinks: NavLink[] = [
 export const secondaryNavLinks: NavLink[] = [
   { label: "About", href: "/about" },
   { label: "Careers", href: "/careers" },
+  { label: "Care Assessment", href: "/care-assessment" },
   { label: "Contact", href: "/contact" },
 ];
 

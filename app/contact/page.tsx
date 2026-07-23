@@ -4,7 +4,13 @@ import DynamicForm from "@/components/DynamicForm";
 import CarerMatchingForm from "@/components/CarerMatchingForm";
 import { contactContent } from "@/content/contact";
 
-export default function ContactPage() {
+type ContactPageProps = {
+  searchParams: Promise<{ context?: string }>;
+};
+
+export default async function ContactPage({ searchParams }: ContactPageProps) {
+  const { context } = await searchParams;
+
   return (
     <>
       <Hero
@@ -19,6 +25,9 @@ export default function ContactPage() {
           action="/api/contact"
           submitLabel={contactContent.cta.text}
           successMessage={contactContent.cta.subtext}
+          defaultValues={
+            context ? { message: `Regarding: ${context}\n\n` } : undefined
+          }
         >
           <CarerMatchingForm />
         </DynamicForm>

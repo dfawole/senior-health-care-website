@@ -78,6 +78,13 @@ export const homeContent = {
     ] satisfies CardItem[],
   },
 
+  careAssessmentPrompt: {
+    heading: "Not Sure What Level of Care You Need?",
+    subtext:
+      "Try our free Care Needs Assessment — answer a few quick questions to get an indicative estimate of weekly care hours.",
+    ctaLabel: "Try the Care Needs Assessment",
+  },
+
   whyChooseUs: {
     eyebrow: "Why Choose Us",
     title: "A Different Kind of Home Care",
