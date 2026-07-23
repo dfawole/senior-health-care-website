@@ -1,17 +1,32 @@
 export type NavLink = {
   label: string;
-  shortLabel?: string;
   href: string;
 };
 
-export const navLinks: NavLink[] = [
-  { label: "Home", href: "/" },
-  { label: "Personal Care", shortLabel: "Personal", href: "/personal-care" },
-  { label: "Nursing Care", shortLabel: "Nursing", href: "/nursing-care" },
-  { label: "Dementia Care", shortLabel: "Dementia", href: "/dementia-care" },
-  { label: "Live-in Care", shortLabel: "Live-in", href: "/live-in-care" },
-  { label: "Respite Care", shortLabel: "Respite", href: "/respite-care" },
+export const homeLink: NavLink = { label: "Home", href: "/" };
+
+export const serviceLinks: NavLink[] = [
+  { label: "Personal Care", href: "/personal-care" },
+  { label: "Nursing Care", href: "/nursing-care" },
+  { label: "Dementia Care", href: "/dementia-care" },
+  { label: "Live-in Care", href: "/live-in-care" },
+  { label: "Respite Care", href: "/respite-care" },
+  { label: "Mental Health Support", href: "/mental-health-support" },
+  {
+    label: "Learning Disability Support",
+    href: "/learning-disability-support",
+  },
+];
+
+export const secondaryNavLinks: NavLink[] = [
   { label: "About", href: "/about" },
   { label: "Careers", href: "/careers" },
   { label: "Contact", href: "/contact" },
+];
+
+// Full flat list — used by the footer's sitemap-style column.
+export const navLinks: NavLink[] = [
+  homeLink,
+  ...serviceLinks,
+  ...secondaryNavLinks,
 ];

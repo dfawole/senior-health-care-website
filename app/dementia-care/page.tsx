@@ -1,6 +1,6 @@
-import PageShell from "@/components/PageShell";
-import { pagesContent } from "@/content/pages";
+import ServicePageLayout from "@/components/ServicePageLayout";
+import { dementiaCareContent } from "@/content/services/dementia-care";
 
 export default function DementiaCarePage() {
-  return <PageShell title={pagesContent.dementiaCare.title} />;
+  return <ServicePageLayout {...dementiaCareContent} />;
 }

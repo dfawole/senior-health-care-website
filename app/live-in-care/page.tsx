@@ -1,6 +1,6 @@
-import PageShell from "@/components/PageShell";
-import { pagesContent } from "@/content/pages";
+import ServicePageLayout from "@/components/ServicePageLayout";
+import { liveInCareContent } from "@/content/services/live-in-care";
 
 export default function LiveInCarePage() {
-  return <PageShell title={pagesContent.liveInCare.title} />;
+  return <ServicePageLayout {...liveInCareContent} />;
 }

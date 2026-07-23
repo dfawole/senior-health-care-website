@@ -62,11 +62,18 @@ export const homeContent = {
         href: "/respite-care",
       },
       {
-        icon: "users",
-        title: "Companionship Care",
+        icon: "heartHandshake",
+        title: "Mental Health Support",
         description:
-          "Friendly, regular visits for conversation, company and outings.",
-        href: "/contact",
+          "Compassionate, person-centred support for depression, anxiety and low motivation.",
+        href: "/mental-health-support",
+      },
+      {
+        icon: "graduationCap",
+        title: "Learning Disability Support",
+        description:
+          "Practical support that builds independence, skills and community access.",
+        href: "/learning-disability-support",
       },
     ] satisfies CardItem[],
   },

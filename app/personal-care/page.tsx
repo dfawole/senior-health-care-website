@@ -1,6 +1,6 @@
-import PageShell from "@/components/PageShell";
-import { pagesContent } from "@/content/pages";
+import ServicePageLayout from "@/components/ServicePageLayout";
+import { personalCareContent } from "@/content/services/personal-care";
 
 export default function PersonalCarePage() {
-  return <PageShell title={pagesContent.personalCare.title} />;
+  return <ServicePageLayout {...personalCareContent} />;
 }

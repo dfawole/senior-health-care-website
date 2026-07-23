@@ -12,6 +12,8 @@ export const siteContent = {
   },
   header: {
     menuToggleLabel: "Toggle menu",
+    servicesLabel: "Services",
+    servicesHref: "/#services",
   },
   footer: {
     navHeading: "Navigate",
@@ -28,5 +30,22 @@ export const siteContent = {
     heading: "Something went wrong",
     body: "Please try again, or contact us if the problem continues.",
     retryLabel: "Try again",
+  },
+  form: {
+    selectPlaceholder: "Select an option",
+    submittingLabel: "Sending…",
+    errorMessage:
+      "Something went wrong — please try again or call us directly.",
+  },
+  servicePage: {
+    defaultCtaText: "Speak to Our Team",
+    heroSecondaryCtaLabel: "Call Us",
+    eligibilityTitle: (serviceName: string) =>
+      `Is ${serviceName} Right for You?`,
+    includedTitle: (serviceName: string) => `What's Included in ${serviceName}`,
+    closingCtaTitle: (serviceName: string) =>
+      `Ready to Talk About ${serviceName}?`,
+    closingCtaPrimaryLabel: "Call Now",
+    closingCtaSecondaryLabel: "Request a Callback",
   },
 } as const;

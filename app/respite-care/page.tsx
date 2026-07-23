@@ -1,6 +1,6 @@
-import PageShell from "@/components/PageShell";
-import { pagesContent } from "@/content/pages";
+import ServicePageLayout from "@/components/ServicePageLayout";
+import { respiteCareContent } from "@/content/services/respite-care";
 
 export default function RespiteCarePage() {
-  return <PageShell title={pagesContent.respiteCare.title} />;
+  return <ServicePageLayout {...respiteCareContent} />;
 }

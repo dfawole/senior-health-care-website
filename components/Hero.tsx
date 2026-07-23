@@ -8,9 +8,9 @@ export type HeroCta = {
 export type HeroContent = {
   eyebrow?: string;
   title: string;
-  subhead: string;
-  primaryCta: HeroCta;
-  secondaryCta: HeroCta;
+  subhead?: string;
+  primaryCta?: HeroCta;
+  secondaryCta?: HeroCta;
 };
 
 type HeroProps = HeroContent;
@@ -22,6 +22,8 @@ export default function Hero({
   primaryCta,
   secondaryCta,
 }: HeroProps) {
+  const hasCtas = Boolean(primaryCta || secondaryCta);
+
   return (
     <section className="bg-primary text-white">
       <div className="mx-auto flex max-w-3xl flex-col items-center gap-6 px-4 py-24 text-center sm:py-32">
@@ -37,13 +39,19 @@ export default function Hero({
             </span>
           ))}
         </h1>
-        <p className="max-w-xl text-lg text-white/85">{subhead}</p>
-        <div className="mt-2 flex flex-col items-center gap-4 sm:flex-row">
-          <CTAButton href={primaryCta.href}>{primaryCta.label}</CTAButton>
-          <CTAButton href={secondaryCta.href} variant="outline">
-            {secondaryCta.label}
-          </CTAButton>
-        </div>
+        {subhead && <p className="max-w-xl text-lg text-white/85">{subhead}</p>}
+        {hasCtas && (
+          <div className="mt-2 flex flex-col items-center gap-4 sm:flex-row">
+            {primaryCta && (
+              <CTAButton href={primaryCta.href}>{primaryCta.label}</CTAButton>
+            )}
+            {secondaryCta && (
+              <CTAButton href={secondaryCta.href} variant="outline">
+                {secondaryCta.label}
+              </CTAButton>
+            )}
+          </div>
+        )}
       </div>
     </section>
   );

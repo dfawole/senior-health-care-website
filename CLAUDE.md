@@ -73,3 +73,36 @@ Use `lucide-react` for all iconography (line icons, `strokeWidth={1.5}`,
 colored via `text-primary`/`text-accent`). Don't hand-roll SVGs or use
 emoji as icons — emoji reads informal/budget, inconsistent with the
 premium positioning.
+
+## Service page pattern (enforced)
+
+Every service page (`app/personal-care/page.tsx`, `app/nursing-care/page.tsx`,
+and any future service route) is a thin wrapper around
+`components/ServicePageLayout.tsx` — it imports one content object and
+renders `<ServicePageLayout {...content} />`. Nothing else. No page-level
+markup, styling, or copy.
+
+- **Content** lives in `content/services/<slug>.ts`, one file per service,
+  typed against `ServicePageContent` (exported from `ServicePageLayout.tsx`).
+  Fields: `serviceName`, `heroHeadline`, `heroSubtext`, `eligibilityPoints`
+  (3–4 item "Is this right for you?" checklist), `includedItems` ("What's
+  included" checklist), `relevantStat` (single `{ number, label }` — not
+  the homepage's multi-stat `StatsRow`), `testimonial` (single
+  `{ quote, name, location }` — not the homepage's rotating
+  `TestimonialsCarousel`), and an optional `ctaText` override for the
+  hero's primary CTA label.
+- **Standard section labels** ("Is `{service}` Right for You?", "What's
+  Included in `{service}`", the closing CTA banner title/button labels,
+  the hero's secondary CTA label) are template-level, not per-service
+  copy — they live in `content/site.ts` under `servicePage`, not in each
+  service's content file. Only add a field to a per-service content file
+  if the copy genuinely varies by service.
+- **Shared building blocks**: `Hero`, `Section`, `Checklist` (checkmark
+  bullet list — also used by `WhyChooseUs`), `StatHighlight` (single
+  stat — also used by `StatsRow`), `TestimonialCard` (single testimonial
+  — the homepage carousel is a different component for a different job),
+  `CTABanner`. Adding a new service page should never require writing new
+  markup — only a new content file.
+- Placeholder/draft testimonials are marked with a `// DRAFT testimonial`
+  comment directly above them in the content file — grep for that before
+  launch to make sure every service has a real, permissioned client quote.

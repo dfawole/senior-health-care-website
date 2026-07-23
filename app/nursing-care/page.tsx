@@ -1,6 +1,6 @@
-import PageShell from "@/components/PageShell";
-import { pagesContent } from "@/content/pages";
+import ServicePageLayout from "@/components/ServicePageLayout";
+import { nursingCareContent } from "@/content/services/nursing-care";
 
 export default function NursingCarePage() {
-  return <PageShell title={pagesContent.nursingCare.title} />;
+  return <ServicePageLayout {...nursingCareContent} />;
 }
