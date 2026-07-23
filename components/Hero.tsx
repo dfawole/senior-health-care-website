@@ -1,4 +1,5 @@
 import CTAButton from "@/components/CTAButton";
+import ListenButton from "@/components/ListenButton";
 
 export type HeroCta = {
   label: string;
@@ -11,6 +12,7 @@ export type HeroContent = {
   subhead?: string;
   primaryCta?: HeroCta;
   secondaryCta?: HeroCta;
+  enableListen?: boolean;
 };
 
 type HeroProps = HeroContent;
@@ -21,6 +23,7 @@ export default function Hero({
   subhead,
   primaryCta,
   secondaryCta,
+  enableListen = false,
 }: HeroProps) {
   const hasCtas = Boolean(primaryCta || secondaryCta);
 
@@ -39,7 +42,17 @@ export default function Hero({
             </span>
           ))}
         </h1>
-        {subhead && <p className="max-w-xl text-lg text-white/85">{subhead}</p>}
+        {subhead && (
+          <div className="flex max-w-xl items-center gap-2">
+            <p className="text-lg text-white/85">{subhead}</p>
+            {enableListen && (
+              <ListenButton
+                text={subhead}
+                className="text-white/60 hover:text-white"
+              />
+            )}
+          </div>
+        )}
         {hasCtas && (
           <div className="mt-2 flex flex-col items-center gap-4 sm:flex-row">
             {primaryCta && (

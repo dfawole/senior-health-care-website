@@ -1,12 +1,13 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
+import { useState, type FormEvent, type ReactNode } from "react";
 import { siteContent } from "@/content/site";
 
 export type FormFieldConfig = {
   label: string;
   required: boolean;
   options?: string[];
+  freeText?: boolean;
 };
 
 export type FormFieldsConfig = Record<string, FormFieldConfig>;
@@ -16,6 +17,7 @@ type DynamicFormProps = {
   action: string;
   submitLabel: string;
   successMessage: string;
+  children?: ReactNode;
 };
 
 type SubmitStatus = "idle" | "submitting" | "submitted" | "error";
@@ -29,11 +31,56 @@ const INPUT_TYPE_OVERRIDES: Record<string, string> = {
 const fieldClasses =
   "border-primary/20 focus:border-primary rounded-md border bg-white px-4 py-2 text-base text-text focus:outline-none";
 
+type FormFieldProps = {
+  name: string;
+  field: FormFieldConfig;
+};
+
+export function FormField({ name, field }: FormFieldProps) {
+  return (
+    <label className="text-text flex flex-col gap-1 text-sm font-medium">
+      {field.label}
+      {field.options ? (
+        <select
+          name={name}
+          required={field.required}
+          defaultValue=""
+          className={fieldClasses}
+        >
+          <option value="" disabled>
+            {siteContent.form.selectPlaceholder}
+          </option>
+          {field.options.map((option) => (
+            <option key={option} value={option}>
+              {option}
+            </option>
+          ))}
+        </select>
+      ) : MULTILINE_FIELDS.has(name) || field.freeText ? (
+        <textarea
+          name={name}
+          required={field.required}
+          rows={4}
+          className={fieldClasses}
+        />
+      ) : (
+        <input
+          type={INPUT_TYPE_OVERRIDES[name] ?? "text"}
+          name={name}
+          required={field.required}
+          className={fieldClasses}
+        />
+      )}
+    </label>
+  );
+}
+
 export default function DynamicForm({
   fields,
   action,
   submitLabel,
   successMessage,
+  children,
 }: DynamicFormProps) {
   const [status, setStatus] = useState<SubmitStatus>("idle");
 
@@ -76,44 +123,10 @@ export default function DynamicForm({
       className="mx-auto flex max-w-xl flex-col gap-4"
     >
       {Object.entries(fields).map(([name, field]) => (
-        <label
-          key={name}
-          className="text-text flex flex-col gap-1 text-sm font-medium"
-        >
-          {field.label}
-          {field.options ? (
-            <select
-              name={name}
-              required={field.required}
-              defaultValue=""
-              className={fieldClasses}
-            >
-              <option value="" disabled>
-                {siteContent.form.selectPlaceholder}
-              </option>
-              {field.options.map((option) => (
-                <option key={option} value={option}>
-                  {option}
-                </option>
-              ))}
-            </select>
-          ) : MULTILINE_FIELDS.has(name) ? (
-            <textarea
-              name={name}
-              required={field.required}
-              rows={4}
-              className={fieldClasses}
-            />
-          ) : (
-            <input
-              type={INPUT_TYPE_OVERRIDES[name] ?? "text"}
-              name={name}
-              required={field.required}
-              className={fieldClasses}
-            />
-          )}
-        </label>
+        <FormField key={name} name={name} field={field} />
       ))}
+
+      {children}
 
       <button
         type="submit"

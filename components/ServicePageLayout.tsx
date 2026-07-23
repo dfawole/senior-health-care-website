@@ -51,17 +51,18 @@ export default function ServicePageLayout({
           label: servicePage.heroSecondaryCtaLabel,
           href: phone.href,
         }}
+        enableListen
       />
 
       <Section title={servicePage.eligibilityTitle(serviceName)}>
         <div className="mx-auto max-w-2xl">
-          <Checklist items={eligibilityPoints} />
+          <Checklist items={eligibilityPoints} enableListen />
         </div>
       </Section>
 
       <Section title={servicePage.includedTitle(serviceName)} tone="muted">
         <div className="mx-auto max-w-2xl">
-          <Checklist items={includedItems} />
+          <Checklist items={includedItems} enableListen />
         </div>
       </Section>
 
