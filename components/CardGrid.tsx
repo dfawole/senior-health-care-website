@@ -31,7 +31,7 @@ type CardGridProps = {
   items: CardItem[];
 };
 
-const iconMap: Record<CardIconName, LucideIcon> = {
+export const iconMap: Record<CardIconName, LucideIcon> = {
   heart: Heart,
   stethoscope: Stethoscope,
   brain: Brain,

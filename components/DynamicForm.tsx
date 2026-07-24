@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, type FormEvent, type ReactNode } from "react";
+import { ChevronDown } from "lucide-react";
 import { siteContent } from "@/content/site";
 
 export type FormFieldConfig = {
@@ -32,6 +33,8 @@ const INPUT_TYPE_OVERRIDES: Record<string, string> = {
 const fieldClasses =
   "border-primary/20 focus:border-primary rounded-md border bg-white px-4 py-2 text-base text-text focus:outline-none";
 
+const selectClasses = `${fieldClasses} hover:border-accent/50 focus:border-accent appearance-none pr-10 cursor-pointer`;
+
 type FormFieldProps = {
   name: string;
   field: FormFieldConfig;
@@ -43,21 +46,28 @@ export function FormField({ name, field, defaultValue }: FormFieldProps) {
     <label className="text-text flex flex-col gap-1 text-sm font-medium">
       {field.label}
       {field.options ? (
-        <select
-          name={name}
-          required={field.required}
-          defaultValue={defaultValue ?? ""}
-          className={fieldClasses}
-        >
-          <option value="" disabled>
-            {siteContent.form.selectPlaceholder}
-          </option>
-          {field.options.map((option) => (
-            <option key={option} value={option}>
-              {option}
+        <div className="relative">
+          <select
+            name={name}
+            required={field.required}
+            defaultValue={defaultValue ?? ""}
+            className={`${selectClasses} w-full`}
+          >
+            <option value="" disabled>
+              {siteContent.form.selectPlaceholder}
             </option>
-          ))}
-        </select>
+            {field.options.map((option) => (
+              <option key={option} value={option}>
+                {option}
+              </option>
+            ))}
+          </select>
+          <ChevronDown
+            className="text-primary pointer-events-none absolute top-1/2 right-3 h-4 w-4 -translate-y-1/2"
+            strokeWidth={1.5}
+            aria-hidden="true"
+          />
+        </div>
       ) : MULTILINE_FIELDS.has(name) || field.freeText ? (
         <textarea
           name={name}

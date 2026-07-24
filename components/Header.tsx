@@ -9,6 +9,7 @@ import {
   secondaryNavLinks,
 } from "@/content/navigation";
 import { siteContent } from "@/content/site";
+import ServicesMegaMenu from "@/components/ServicesMegaMenu";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -40,18 +41,8 @@ export default function Header() {
                 aria-hidden="true"
               />
             </Link>
-            <div className="invisible absolute top-full left-1/2 z-50 w-64 -translate-x-1/2 pt-3 opacity-0 transition-opacity group-focus-within:visible group-focus-within:opacity-100 group-hover:visible group-hover:opacity-100">
-              <div className="border-primary/10 flex flex-col rounded-lg border bg-white p-2 shadow-lg">
-                {serviceLinks.map((link) => (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    className="text-text hover:bg-primary/5 hover:text-primary rounded-md px-3 py-2 text-sm"
-                  >
-                    {link.label}
-                  </Link>
-                ))}
-              </div>
+            <div className="invisible absolute top-full left-1/2 z-50 -translate-x-1/2 pt-3 opacity-0 transition-opacity group-focus-within:visible group-focus-within:opacity-100 group-hover:visible group-hover:opacity-100">
+              <ServicesMegaMenu />
             </div>
           </div>
 
