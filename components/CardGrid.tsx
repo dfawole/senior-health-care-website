@@ -9,6 +9,8 @@ import {
   Stethoscope,
   type LucideIcon,
 } from "lucide-react";
+import StaggerGroup from "@/components/StaggerGroup";
+import StaggerItem from "@/components/StaggerItem";
 
 export type CardIconName =
   | "heart"
@@ -42,11 +44,11 @@ export const iconMap: Record<CardIconName, LucideIcon> = {
 };
 
 const cardClasses =
-  "group border-primary/10 flex flex-col gap-4 rounded-lg border bg-white p-8 transition-shadow hover:shadow-md";
+  "group border-primary/10 flex h-full flex-col gap-4 rounded-lg border bg-white p-8 transition duration-200 ease-out hover:-translate-y-1 hover:shadow-lg";
 
 export default function CardGrid({ items }: CardGridProps) {
   return (
-    <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+    <StaggerGroup className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
       {items.map((item) => {
         const Icon = item.icon ? iconMap[item.icon] : null;
         const content = (
@@ -66,20 +68,18 @@ export default function CardGrid({ items }: CardGridProps) {
           </>
         );
 
-        if (item.href) {
-          return (
-            <Link key={item.title} href={item.href} className={cardClasses}>
-              {content}
-            </Link>
-          );
-        }
-
         return (
-          <div key={item.title} className={cardClasses}>
-            {content}
-          </div>
+          <StaggerItem key={item.title}>
+            {item.href ? (
+              <Link href={item.href} className={cardClasses}>
+                {content}
+              </Link>
+            ) : (
+              <div className={cardClasses}>{content}</div>
+            )}
+          </StaggerItem>
         );
       })}
-    </div>
+    </StaggerGroup>
   );
 }

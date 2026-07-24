@@ -2,7 +2,13 @@ import Link from "next/link";
 import { iconMap } from "@/components/CardGrid";
 import { homeContent } from "@/content/home";
 
-export default function ServicesMegaMenu() {
+type ServicesMegaMenuProps = {
+  onLinkClick?: () => void;
+};
+
+export default function ServicesMegaMenu({
+  onLinkClick,
+}: ServicesMegaMenuProps) {
   return (
     <div className="border-primary/10 grid w-[640px] grid-cols-3 gap-1 rounded-lg border bg-white p-4 shadow-lg">
       {homeContent.services.items.map((item) => {
@@ -11,7 +17,8 @@ export default function ServicesMegaMenu() {
           <Link
             key={item.title}
             href={item.href ?? "#"}
-            className="hover:bg-accent/5 flex flex-col gap-2 rounded-md p-3 transition-colors"
+            onClick={onLinkClick}
+            className="hover:bg-accent/5 flex flex-col gap-2 rounded-md p-3 transition duration-200 ease-out hover:-translate-y-1 hover:shadow-md"
           >
             {Icon && (
               <Icon

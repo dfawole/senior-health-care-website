@@ -8,10 +8,10 @@ import type {
 type CTAButtonVariant = "primary" | "secondary" | "outline";
 
 const baseClasses =
-  "inline-flex items-center justify-center rounded-md px-6 py-3 text-base font-semibold transition-colors";
+  "inline-flex items-center justify-center rounded-md px-6 py-3 text-base font-semibold transition duration-200 ease-out";
 
 const variantClasses: Record<CTAButtonVariant, string> = {
-  primary: "bg-accent text-white hover:opacity-90",
+  primary: "bg-accent text-white hover:opacity-90 hover:scale-[1.02]",
   secondary: "bg-primary text-white hover:opacity-90",
   outline: "border border-white/70 text-white hover:bg-white/10",
 };

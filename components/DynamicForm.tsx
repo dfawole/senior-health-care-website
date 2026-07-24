@@ -1,8 +1,9 @@
 "use client";
 
 import { useState, type FormEvent, type ReactNode } from "react";
-import { ChevronDown } from "lucide-react";
+import { CheckCircle2, Loader2 } from "lucide-react";
 import { siteContent } from "@/content/site";
+import Select from "@/components/Select";
 
 export type FormFieldConfig = {
   label: string;
@@ -31,9 +32,7 @@ const INPUT_TYPE_OVERRIDES: Record<string, string> = {
 };
 
 const fieldClasses =
-  "border-primary/20 focus:border-primary rounded-md border bg-white px-4 py-2 text-base text-text focus:outline-none";
-
-const selectClasses = `${fieldClasses} hover:border-accent/50 focus:border-accent appearance-none pr-10 cursor-pointer`;
+  "border-primary/20 focus:border-primary rounded-md border bg-white px-4 py-2 text-base text-text transition-colors duration-200 focus:outline-none";
 
 type FormFieldProps = {
   name: string;
@@ -46,28 +45,13 @@ export function FormField({ name, field, defaultValue }: FormFieldProps) {
     <label className="text-text flex flex-col gap-1 text-sm font-medium">
       {field.label}
       {field.options ? (
-        <div className="relative">
-          <select
-            name={name}
-            required={field.required}
-            defaultValue={defaultValue ?? ""}
-            className={`${selectClasses} w-full`}
-          >
-            <option value="" disabled>
-              {siteContent.form.selectPlaceholder}
-            </option>
-            {field.options.map((option) => (
-              <option key={option} value={option}>
-                {option}
-              </option>
-            ))}
-          </select>
-          <ChevronDown
-            className="text-primary pointer-events-none absolute top-1/2 right-3 h-4 w-4 -translate-y-1/2"
-            strokeWidth={1.5}
-            aria-hidden="true"
-          />
-        </div>
+        <Select
+          name={name}
+          required={field.required}
+          defaultValue={defaultValue}
+          placeholder={siteContent.form.selectPlaceholder}
+          options={field.options}
+        />
       ) : MULTILINE_FIELDS.has(name) || field.freeText ? (
         <textarea
           name={name}
@@ -101,6 +85,7 @@ export default function DynamicForm({
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    if (status === "submitting") return;
     setStatus("submitting");
 
     const formData = new FormData(event.currentTarget);
@@ -126,9 +111,17 @@ export default function DynamicForm({
 
   if (status === "submitted") {
     return (
-      <p className="border-primary/10 text-text rounded-lg border bg-white p-6 text-center">
-        {successMessage}
-      </p>
+      <div
+        className="border-accent/30 bg-accent/5 animate-fade-in mx-auto flex max-w-xl flex-col items-center gap-3 rounded-lg border p-8 text-center"
+        role="status"
+      >
+        <CheckCircle2
+          className="text-accent h-8 w-8"
+          strokeWidth={1.5}
+          aria-hidden="true"
+        />
+        <p className="text-text text-base">{successMessage}</p>
+      </div>
     );
   }
 
@@ -151,8 +144,15 @@ export default function DynamicForm({
       <button
         type="submit"
         disabled={status === "submitting"}
-        className="bg-accent inline-flex items-center justify-center rounded-md px-6 py-3 text-base font-semibold text-white transition-colors hover:opacity-90 disabled:opacity-60"
+        className="bg-accent inline-flex items-center justify-center gap-2 rounded-md px-6 py-3 text-base font-semibold text-white transition duration-200 ease-out hover:opacity-90 disabled:opacity-60"
       >
+        {status === "submitting" && (
+          <Loader2
+            className="h-4 w-4 animate-spin"
+            strokeWidth={2}
+            aria-hidden="true"
+          />
+        )}
         {status === "submitting"
           ? siteContent.form.submittingLabel
           : submitLabel}

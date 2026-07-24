@@ -1,4 +1,5 @@
 import CTAButton from "@/components/CTAButton";
+import Reveal from "@/components/Reveal";
 
 export type CTABannerContent = {
   title: string;
@@ -17,7 +18,7 @@ export default function CTABanner({
 }: CTABannerProps) {
   return (
     <section className="bg-primary text-white">
-      <div className="mx-auto flex max-w-2xl flex-col items-center gap-8 px-4 py-24 text-center sm:py-32">
+      <Reveal className="mx-auto flex max-w-2xl flex-col items-center gap-8 px-4 py-24 text-center sm:py-32">
         <div className="flex flex-col items-center gap-4">
           <h2 className="font-serif text-3xl font-medium tracking-normal sm:text-4xl">
             {title}
@@ -32,7 +33,7 @@ export default function CTABanner({
             {secondaryCta.label}
           </CTAButton>
         </div>
-      </div>
+      </Reveal>
     </section>
   );
 }

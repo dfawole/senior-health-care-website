@@ -15,7 +15,7 @@ export default function Footer() {
             <p className="mt-2 text-sm text-white/80">{siteContent.tagline}</p>
             <a
               href={siteContent.phone.href}
-              className="text-accent-light mt-3 inline-block text-sm font-semibold"
+              className="text-accent-light mt-3 inline-block text-sm font-semibold transition-colors hover:text-white"
             >
               {siteContent.phone.display}
             </a>
@@ -30,7 +30,7 @@ export default function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="hover:text-accent-light text-sm text-white/90"
+                    className="hover:text-accent-light text-sm text-white/90 transition-colors"
                   >
                     {link.label}
                   </Link>

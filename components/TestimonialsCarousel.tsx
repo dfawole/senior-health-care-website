@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { Star } from "lucide-react";
 
 export type TestimonialItem = {
@@ -28,6 +29,7 @@ export default function TestimonialsCarousel({
   intervalMs = 6000,
 }: TestimonialsCarouselProps) {
   const [activeIndex, setActiveIndex] = useState(0);
+  const prefersReducedMotion = useReducedMotion();
 
   useEffect(() => {
     if (testimonials.length <= 1) return;
@@ -45,39 +47,55 @@ export default function TestimonialsCarousel({
 
   return (
     <div className="mx-auto flex max-w-2xl flex-col items-center gap-6 text-center">
-      <div className="flex gap-1" aria-hidden="true">
-        {Array.from({ length: active.rating }).map((_, index) => (
-          <Star
-            key={index}
-            className="fill-accent text-accent h-5 w-5"
-            strokeWidth={1.5}
-          />
-        ))}
-      </div>
+      <div className="relative w-full overflow-hidden">
+        <AnimatePresence mode="wait" initial={false}>
+          <motion.div
+            key={activeIndex}
+            initial={prefersReducedMotion ? false : { opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={prefersReducedMotion ? undefined : { opacity: 0, y: -8 }}
+            transition={{ duration: prefersReducedMotion ? 0 : 0.35 }}
+            className="flex flex-col items-center gap-6"
+          >
+            <div className="flex gap-1" aria-hidden="true">
+              {Array.from({ length: active.rating }).map((_, index) => (
+                <Star
+                  key={index}
+                  className="fill-accent text-accent h-5 w-5"
+                  strokeWidth={1.5}
+                />
+              ))}
+            </div>
 
-      <p className="text-text font-serif text-2xl font-medium">
-        &ldquo;{active.quote}&rdquo;
-      </p>
+            <p className="text-text font-serif text-2xl font-medium">
+              &ldquo;{active.quote}&rdquo;
+            </p>
 
-      <div className="flex flex-col items-center gap-3">
-        <span className="bg-primary flex h-12 w-12 items-center justify-center rounded-full text-sm font-semibold text-white">
-          {getInitials(active.name)}
-        </span>
-        <p className="text-text/60 text-sm">
-          {active.name}, {active.area}
-        </p>
+            <div className="flex flex-col items-center gap-3">
+              <span className="bg-primary flex h-12 w-12 items-center justify-center rounded-full text-sm font-semibold text-white">
+                {getInitials(active.name)}
+              </span>
+              <p className="text-text/60 text-sm">
+                {active.name}, {active.area}
+              </p>
+            </div>
+          </motion.div>
+        </AnimatePresence>
       </div>
 
       {testimonials.length > 1 && (
-        <div className="mt-2 flex gap-2">
+        <div className="mt-2 flex items-center gap-2">
           {testimonials.map((testimonial, index) => (
             <button
               key={testimonial.name}
               type="button"
               aria-label={`Show testimonial from ${testimonial.name}`}
+              aria-current={index === activeIndex}
               onClick={() => setActiveIndex(index)}
-              className={`h-2 w-2 rounded-full transition-colors ${
-                index === activeIndex ? "bg-primary" : "bg-primary/20"
+              className={`rounded-full transition-all duration-200 ${
+                index === activeIndex
+                  ? "bg-accent h-2.5 w-2.5"
+                  : "bg-primary/20 hover:bg-primary/40 h-2 w-2"
               }`}
             />
           ))}

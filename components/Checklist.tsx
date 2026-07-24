@@ -1,5 +1,7 @@
 import { Check } from "lucide-react";
 import ListenButton from "@/components/ListenButton";
+import StaggerGroup from "@/components/StaggerGroup";
+import StaggerItem from "@/components/StaggerItem";
 
 type ChecklistProps = {
   items: string[];
@@ -20,18 +22,18 @@ export default function Checklist({
           />
         </div>
       )}
-      <ul className="flex flex-col gap-3">
+      <StaggerGroup as="ul" className="flex flex-col gap-3">
         {items.map((item) => (
-          <li key={item} className="flex items-start gap-3">
+          <StaggerItem as="li" key={item} className="flex items-start gap-3">
             <Check
               className="text-primary mt-0.5 h-5 w-5 shrink-0"
               strokeWidth={1.5}
               aria-hidden="true"
             />
             <span className="text-text text-base">{item}</span>
-          </li>
+          </StaggerItem>
         ))}
-      </ul>
+      </StaggerGroup>
     </div>
   );
 }

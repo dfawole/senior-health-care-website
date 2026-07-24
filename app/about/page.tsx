@@ -3,6 +3,8 @@ import Hero from "@/components/Hero";
 import Section from "@/components/Section";
 import ContentBlock from "@/components/ContentBlock";
 import CTABanner from "@/components/CTABanner";
+import StaggerGroup from "@/components/StaggerGroup";
+import StaggerItem from "@/components/StaggerItem";
 import { aboutContent } from "@/content/about";
 import { siteContent } from "@/content/site";
 import { buildPageMetadata } from "@/lib/metadata";
@@ -20,15 +22,13 @@ export default function AboutPage() {
       <Section title={aboutContent.heading} description={aboutContent.intro} />
 
       <Section tone="muted">
-        <div className="mx-auto flex max-w-2xl flex-col gap-12">
+        <StaggerGroup className="mx-auto flex max-w-2xl flex-col gap-12">
           {aboutContent.sections.map((section) => (
-            <ContentBlock
-              key={section.heading}
-              heading={section.heading}
-              body={section.body}
-            />
+            <StaggerItem key={section.heading}>
+              <ContentBlock heading={section.heading} body={section.body} />
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerGroup>
       </Section>
 
       <CTABanner

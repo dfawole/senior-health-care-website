@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import { ChevronDown } from "lucide-react";
 import {
   homeLink,
@@ -13,7 +14,21 @@ import ServicesMegaMenu from "@/components/ServicesMegaMenu";
 import Logo from "@/components/Logo";
 
 export default function Header() {
+  const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
+
+  // Header persists across client-side navigations (it lives in the root
+  // layout, not inside the page), so neither dropdown unmounts on route
+  // change. Force both closed whenever the route actually changes —
+  // without this, clicking a link without moving the mouse afterward
+  // leaves :hover (and therefore the CSS-only version of this menu) true
+  // on the new page, since the pointer never left the trigger's screen
+  // position.
+  useEffect(() => {
+    setMenuOpen(false);
+    setServicesOpen(false);
+  }, [pathname]);
 
   return (
     <header className="border-primary/10 bg-background/95 sticky top-0 z-50 border-b backdrop-blur">
@@ -23,15 +38,33 @@ export default function Header() {
         <nav className="hidden lg:flex lg:items-center lg:gap-6">
           <Link
             href={homeLink.href}
-            className="text-text hover:text-primary text-sm font-medium"
+            className="text-text hover:text-primary text-sm font-medium transition-colors"
           >
             {homeLink.label}
           </Link>
 
-          <div className="group relative">
+          <div
+            className="relative"
+            onMouseEnter={() => setServicesOpen(true)}
+            onMouseLeave={() => setServicesOpen(false)}
+            onFocus={() => setServicesOpen(true)}
+            onBlur={(event) => {
+              // Only close if focus is leaving the whole group — moving focus
+              // from the trigger to a menu item fires blur on the trigger too,
+              // but relatedTarget is still inside this div in that case.
+              if (
+                !event.currentTarget.contains(
+                  event.relatedTarget as Node | null,
+                )
+              ) {
+                setServicesOpen(false);
+              }
+            }}
+          >
             <Link
               href={siteContent.header.servicesHref}
-              className="text-text hover:text-primary flex items-center gap-1 text-sm font-medium"
+              className="text-text hover:text-primary flex items-center gap-1 text-sm font-medium transition-colors"
+              onClick={() => setServicesOpen(false)}
             >
               {siteContent.header.servicesLabel}
               <ChevronDown
@@ -40,8 +73,12 @@ export default function Header() {
                 aria-hidden="true"
               />
             </Link>
-            <div className="invisible absolute top-full left-1/2 z-50 -translate-x-1/2 pt-3 opacity-0 transition-opacity group-focus-within:visible group-focus-within:opacity-100 group-hover:visible group-hover:opacity-100">
-              <ServicesMegaMenu />
+            <div
+              className={`absolute top-full left-1/2 z-50 -translate-x-1/2 pt-3 opacity-0 transition-opacity ${
+                servicesOpen ? "visible opacity-100" : "invisible"
+              }`}
+            >
+              <ServicesMegaMenu onLinkClick={() => setServicesOpen(false)} />
             </div>
           </div>
 
@@ -49,7 +86,7 @@ export default function Header() {
             <Link
               key={link.href}
               href={link.href}
-              className="text-text hover:text-primary text-sm font-medium"
+              className="text-text hover:text-primary text-sm font-medium transition-colors"
             >
               {link.label}
             </Link>
@@ -66,7 +103,7 @@ export default function Header() {
 
           <a
             href={siteContent.phone.href}
-            className="bg-primary rounded-md px-3 py-2 text-sm font-semibold text-white hover:opacity-90"
+            className="bg-primary rounded-md px-3 py-2 text-sm font-semibold text-white transition-opacity hover:opacity-90"
           >
             {siteContent.phone.display}
           </a>
@@ -105,7 +142,7 @@ export default function Header() {
           <div className="mx-auto flex max-w-6xl flex-col gap-1 px-4 py-3">
             <Link
               href={homeLink.href}
-              className="text-text hover:bg-primary/5 hover:text-primary rounded-md px-2 py-2 text-sm font-medium"
+              className="text-text hover:bg-primary/5 hover:text-primary rounded-md px-2 py-2 text-sm font-medium transition-colors"
               onClick={() => setMenuOpen(false)}
             >
               {homeLink.label}
@@ -118,7 +155,7 @@ export default function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-text hover:bg-primary/5 hover:text-primary rounded-md px-2 py-2 text-sm font-medium"
+                className="text-text hover:bg-primary/5 hover:text-primary rounded-md px-2 py-2 text-sm font-medium transition-colors"
                 onClick={() => setMenuOpen(false)}
               >
                 {link.label}
@@ -131,7 +168,7 @@ export default function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-text hover:bg-primary/5 hover:text-primary rounded-md px-2 py-2 text-sm font-medium"
+                className="text-text hover:bg-primary/5 hover:text-primary rounded-md px-2 py-2 text-sm font-medium transition-colors"
                 onClick={() => setMenuOpen(false)}
               >
                 {link.label}

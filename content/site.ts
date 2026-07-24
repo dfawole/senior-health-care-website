@@ -37,6 +37,13 @@ export const siteContent = {
     body: "Please try again, or contact us if the problem continues.",
     retryLabel: "Try again",
   },
+  notFoundPage: {
+    eyebrow: "404",
+    heading: "We Can't Find That Page",
+    body: "The page you're looking for doesn't exist or may have moved. Let's get you back on track.",
+    homeLabel: "Back to Home",
+    contactLabel: "Contact Us",
+  },
   form: {
     selectPlaceholder: "Select an option",
     submittingLabel: "Sending…",

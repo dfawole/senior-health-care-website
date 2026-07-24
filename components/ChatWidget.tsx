@@ -1,12 +1,13 @@
 "use client";
 
 import { useEffect, useRef, useState, type FormEvent } from "react";
-import { MessageCircle } from "lucide-react";
+import { MessageCircle, AlertCircle } from "lucide-react";
 import { siteContent } from "@/content/site";
 
 type ChatMessage = {
   role: "user" | "assistant";
   content: string;
+  isError?: boolean;
 };
 
 export default function ChatWidget() {
@@ -60,6 +61,7 @@ export default function ChatWidget() {
           content: siteContent.chatWidget.errorFallback(
             siteContent.phone.display,
           ),
+          isError: true,
         },
       ]);
     } finally {
@@ -80,14 +82,14 @@ export default function ChatWidget() {
                 type="button"
                 aria-label={siteContent.chatWidget.closeLabel}
                 onClick={() => setOpen(false)}
-                className="text-white/80 hover:text-white"
+                className="text-white/80 transition-colors hover:text-white"
               >
                 ✕
               </button>
             </div>
             <a
               href={siteContent.phone.href}
-              className="text-xs font-medium text-white/85 hover:text-white"
+              className="text-xs font-medium text-white/85 transition-colors hover:text-white"
             >
               Call us: {siteContent.phone.display}
             </a>
@@ -98,22 +100,41 @@ export default function ChatWidget() {
               {siteContent.chatWidget.greeting}
             </div>
 
-            {messages.map((message, index) => (
-              <div
-                key={index}
-                className={`max-w-[85%] rounded-lg px-3 py-2 text-sm ${
-                  message.role === "user"
-                    ? "bg-primary ml-auto text-white"
-                    : "bg-background text-text"
-                }`}
-              >
-                {message.content}
-              </div>
-            ))}
+            {messages.map((message, index) =>
+              message.isError ? (
+                <div
+                  key={index}
+                  className="flex max-w-[85%] items-start gap-2 rounded-lg border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-900"
+                >
+                  <AlertCircle
+                    className="mt-0.5 h-4 w-4 shrink-0 text-red-500"
+                    strokeWidth={1.5}
+                    aria-hidden="true"
+                  />
+                  <span>{message.content}</span>
+                </div>
+              ) : (
+                <div
+                  key={index}
+                  className={`max-w-[85%] rounded-lg px-3 py-2 text-sm ${
+                    message.role === "user"
+                      ? "bg-primary ml-auto text-white"
+                      : "bg-background text-text"
+                  }`}
+                >
+                  {message.content}
+                </div>
+              ),
+            )}
 
             {loading && (
-              <div className="bg-background text-text/65 max-w-[85%] rounded-lg px-3 py-2 text-sm">
-                {siteContent.chatWidget.thinkingLabel}
+              <div
+                className="bg-background flex w-fit max-w-[85%] flex-col gap-2 rounded-lg px-3 py-3"
+                role="status"
+                aria-label={siteContent.chatWidget.thinkingLabel}
+              >
+                <div className="bg-text/15 h-2.5 w-32 animate-pulse rounded-full" />
+                <div className="bg-text/15 h-2.5 w-20 animate-pulse rounded-full [animation-delay:150ms]" />
               </div>
             )}
 
@@ -131,12 +152,12 @@ export default function ChatWidget() {
               placeholder={siteContent.chatWidget.inputPlaceholder}
               aria-label={siteContent.chatWidget.inputPlaceholder}
               disabled={loading}
-              className="border-primary/20 focus:border-primary text-text flex-1 rounded-md border px-3 py-2 text-sm focus:outline-none disabled:opacity-60"
+              className="border-primary/20 focus:border-primary text-text flex-1 rounded-md border px-3 py-2 text-sm transition-colors focus:outline-none disabled:opacity-60"
             />
             <button
               type="submit"
               disabled={loading || !input.trim()}
-              className="bg-accent rounded-md px-3 py-2 text-sm font-semibold text-white transition-colors hover:opacity-90 disabled:opacity-60"
+              className="bg-accent rounded-md px-3 py-2 text-sm font-semibold text-white transition duration-200 ease-out hover:opacity-90 disabled:opacity-60"
             >
               {siteContent.chatWidget.sendLabel}
             </button>
@@ -148,7 +169,7 @@ export default function ChatWidget() {
         type="button"
         onClick={() => setOpen((prev) => !prev)}
         aria-label={siteContent.chatWidget.toggleLabel}
-        className="bg-accent text-text flex h-14 w-14 items-center justify-center rounded-full shadow-lg hover:opacity-90"
+        className="bg-accent text-text flex h-14 w-14 items-center justify-center rounded-full shadow-lg transition duration-200 ease-out hover:scale-105 hover:opacity-90"
       >
         <MessageCircle
           className="h-6 w-6"

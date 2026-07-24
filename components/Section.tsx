@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import Reveal from "@/components/Reveal";
 
 export type SectionTone = "default" | "muted" | "primary";
 
@@ -53,7 +54,7 @@ export default function Section({
 
   return (
     <section id={id} className={`${tones.bg} py-24 sm:py-32`}>
-      <div className="mx-auto max-w-6xl px-4">
+      <Reveal className="mx-auto max-w-6xl px-4">
         {hasHeading && (
           <div className="mx-auto mb-12 max-w-2xl text-center">
             {eyebrow && (
@@ -76,7 +77,7 @@ export default function Section({
           </div>
         )}
         {children}
-      </div>
+      </Reveal>
     </section>
   );
 }
