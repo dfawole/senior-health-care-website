@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Hero from "@/components/Hero";
 import Section from "@/components/Section";
 import CardGrid from "@/components/CardGrid";
@@ -5,6 +6,13 @@ import TwoColumnBlocks from "@/components/TwoColumnBlocks";
 import Checklist from "@/components/Checklist";
 import DynamicForm from "@/components/DynamicForm";
 import { careersContent } from "@/content/careers";
+import { buildPageMetadata } from "@/lib/metadata";
+
+export const metadata: Metadata = buildPageMetadata({
+  title: "Careers",
+  description: careersContent.subtext,
+  ogTitle: careersContent.heading,
+});
 
 export default function CareersPage() {
   const whyJoinUsCards = careersContent.whyJoinUs.map((item) => ({

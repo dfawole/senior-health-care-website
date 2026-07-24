@@ -2,7 +2,13 @@
 
 :root {
   --color-primary: #1b2130;
-  --color-accent: #c1592e;
+  /* Darkened from #c1592e for WCAG AA (4.5:1) as text/button-fill on
+     cream/white. Do not lighten back — see CLAUDE.md contrast audit. */
+  --color-accent: #af512a;
+  /* Lightened tint of --color-accent, for accent-colored text specifically
+     on the --color-primary (navy) background, where the base accent fails
+     AA. Use text-accent-light instead of text-accent on dark backgrounds. */
+  --color-accent-light: #d26c41;
   --color-background: #f4efe6;
   --color-text: #1a1a1a;
 }
@@ -10,6 +16,7 @@
 @theme inline {
   --color-primary: var(--color-primary);
   --color-accent: var(--color-accent);
+  --color-accent-light: var(--color-accent-light);
   --color-background: var(--color-background);
   --color-text: var(--color-text);
   --font-sans: var(--font-inter);

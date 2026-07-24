@@ -1,8 +1,16 @@
+import type { Metadata } from "next";
 import Hero from "@/components/Hero";
 import Section from "@/components/Section";
 import DynamicForm from "@/components/DynamicForm";
 import CarerMatchingForm from "@/components/CarerMatchingForm";
 import { contactContent } from "@/content/contact";
+import { buildPageMetadata } from "@/lib/metadata";
+
+export const metadata: Metadata = buildPageMetadata({
+  title: "Contact",
+  description: contactContent.subtext,
+  ogTitle: contactContent.heading,
+});
 
 type ContactPageProps = {
   searchParams: Promise<{ context?: string }>;

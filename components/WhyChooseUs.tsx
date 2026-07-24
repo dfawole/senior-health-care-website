@@ -31,7 +31,7 @@ export default function WhyChooseUs({
         </div>
 
         <div className="border-primary/10 flex flex-col justify-center gap-3 border-t pt-8 lg:border-t-0 lg:border-l lg:pt-0 lg:pl-16">
-          <p className="text-text/40 text-xs font-semibold tracking-wide uppercase">
+          <p className="text-text/65 text-xs font-semibold tracking-wide uppercase">
             {accreditationsLabel}
           </p>
           <ul className="flex flex-col gap-2">

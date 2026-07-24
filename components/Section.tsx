@@ -16,11 +16,28 @@ type SectionProps = SectionHeading & {
 
 const toneClasses: Record<
   SectionTone,
-  { bg: string; heading: string; body: string }
+  { bg: string; heading: string; body: string; eyebrow: string }
 > = {
-  default: { bg: "bg-background", heading: "text-text", body: "text-text/70" },
-  muted: { bg: "bg-white", heading: "text-text", body: "text-text/70" },
-  primary: { bg: "bg-primary", heading: "text-white", body: "text-white/80" },
+  default: {
+    bg: "bg-background",
+    heading: "text-text",
+    body: "text-text/70",
+    eyebrow: "text-accent",
+  },
+  muted: {
+    bg: "bg-white",
+    heading: "text-text",
+    body: "text-text/70",
+    eyebrow: "text-accent",
+  },
+  primary: {
+    bg: "bg-primary",
+    heading: "text-white",
+    body: "text-white/80",
+    // text-accent fails WCAG AA against bg-primary — use the lightened
+    // accent-light variant for accent-colored text on dark backgrounds.
+    eyebrow: "text-accent-light",
+  },
 };
 
 export default function Section({
@@ -40,7 +57,9 @@ export default function Section({
         {hasHeading && (
           <div className="mx-auto mb-12 max-w-2xl text-center">
             {eyebrow && (
-              <p className="text-accent text-sm font-semibold tracking-wide uppercase">
+              <p
+                className={`text-sm font-semibold tracking-wide uppercase ${tones.eyebrow}`}
+              >
                 {eyebrow}
               </p>
             )}

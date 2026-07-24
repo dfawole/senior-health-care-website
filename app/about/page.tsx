@@ -1,9 +1,16 @@
+import type { Metadata } from "next";
 import Hero from "@/components/Hero";
 import Section from "@/components/Section";
 import ContentBlock from "@/components/ContentBlock";
 import CTABanner from "@/components/CTABanner";
 import { aboutContent } from "@/content/about";
 import { siteContent } from "@/content/site";
+import { buildPageMetadata } from "@/lib/metadata";
+
+export const metadata: Metadata = buildPageMetadata({
+  title: aboutContent.heading,
+  description: aboutContent.intro.split(". ")[0] + ".",
+});
 
 export default function AboutPage() {
   return (

@@ -112,7 +112,7 @@ export default function ChatWidget() {
             ))}
 
             {loading && (
-              <div className="bg-background text-text/60 max-w-[85%] rounded-lg px-3 py-2 text-sm">
+              <div className="bg-background text-text/65 max-w-[85%] rounded-lg px-3 py-2 text-sm">
                 {siteContent.chatWidget.thinkingLabel}
               </div>
             )}

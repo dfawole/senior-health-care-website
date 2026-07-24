@@ -10,6 +10,7 @@ import {
 } from "@/content/navigation";
 import { siteContent } from "@/content/site";
 import ServicesMegaMenu from "@/components/ServicesMegaMenu";
+import Logo from "@/components/Logo";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -17,9 +18,7 @@ export default function Header() {
   return (
     <header className="border-primary/10 bg-background/95 sticky top-0 z-50 border-b backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3">
-        <Link href="/" className="text-primary text-lg font-bold">
-          {siteContent.name}
-        </Link>
+        <Logo />
 
         <nav className="hidden lg:flex lg:items-center lg:gap-6">
           <Link
@@ -112,7 +111,7 @@ export default function Header() {
               {homeLink.label}
             </Link>
 
-            <p className="text-text/50 mt-3 px-2 text-xs font-semibold tracking-wide uppercase">
+            <p className="text-text/65 mt-3 px-2 text-xs font-semibold tracking-wide uppercase">
               {siteContent.header.servicesLabel}
             </p>
             {serviceLinks.map((link) => (

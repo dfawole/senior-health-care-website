@@ -1,4 +1,5 @@
 import { ClipboardList } from "lucide-react";
+import type { Metadata } from "next";
 import Hero from "@/components/Hero";
 import TrustRow from "@/components/TrustRow";
 import Section from "@/components/Section";
@@ -9,6 +10,17 @@ import StatsRow from "@/components/StatsRow";
 import TestimonialsCarousel from "@/components/TestimonialsCarousel";
 import CTABanner from "@/components/CTABanner";
 import { homeContent } from "@/content/home";
+import { siteContent } from "@/content/site";
+import { buildPageMetadata } from "@/lib/metadata";
+
+// The root layout's title.template doesn't apply to the root page itself
+// (same route segment), so the site-name suffix is added explicitly here to
+// match every other page's templated title.
+export const metadata: Metadata = buildPageMetadata({
+  title: `Trusted Domiciliary Care Across the UK | ${siteContent.name}`,
+  description: homeContent.hero.subhead,
+  ogTitle: homeContent.hero.title.replace(/\n/g, " "),
+});
 
 export default function HomePage() {
   return (

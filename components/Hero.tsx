@@ -31,7 +31,7 @@ export default function Hero({
     <section className="bg-primary text-white">
       <div className="mx-auto flex max-w-3xl flex-col items-center gap-6 px-4 py-24 text-center sm:py-32">
         {eyebrow && (
-          <p className="text-accent text-sm font-semibold tracking-wide uppercase">
+          <p className="text-accent-light text-sm font-semibold tracking-wide uppercase">
             {eyebrow}
           </p>
         )}

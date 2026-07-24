@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { navLinks } from "@/content/navigation";
 import { siteContent } from "@/content/site";
+import Logo from "@/components/Logo";
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -10,11 +11,11 @@ export default function Footer() {
       <div className="mx-auto max-w-6xl px-4 py-10">
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           <div>
-            <p className="text-lg font-bold">{siteContent.name}</p>
+            <Logo variant="light" />
             <p className="mt-2 text-sm text-white/80">{siteContent.tagline}</p>
             <a
               href={siteContent.phone.href}
-              className="text-accent mt-3 inline-block text-sm font-semibold"
+              className="text-accent-light mt-3 inline-block text-sm font-semibold"
             >
               {siteContent.phone.display}
             </a>
@@ -29,7 +30,7 @@ export default function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="hover:text-accent text-sm text-white/90"
+                    className="hover:text-accent-light text-sm text-white/90"
                   >
                     {link.label}
                   </Link>

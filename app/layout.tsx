@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ChatWidget from "@/components/ChatWidget";
 import { siteContent } from "@/content/site";
+import { homeContent } from "@/content/home";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -17,10 +18,31 @@ const fraunces = Fraunces({
   weight: ["500", "600"],
 });
 
-// TODO: remove `robots: noindex` before pointing the real domain at this site.
+const homeOgTitle = homeContent.hero.title.replace(/\n/g, " ");
+
+// TODO: swap for the real production domain before launch (also remove the
+// `robots: noindex` below at the same time).
+const siteUrl = "https://www.seniorhealthcare.org.uk";
+
 export const metadata: Metadata = {
-  title: siteContent.name,
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: siteContent.name,
+    template: `%s | ${siteContent.name}`,
+  },
   description: siteContent.tagline,
+  openGraph: {
+    title: homeOgTitle,
+    description: homeContent.hero.subhead,
+    siteName: siteContent.name,
+    locale: "en_GB",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: homeOgTitle,
+    description: homeContent.hero.subhead,
+  },
   robots: {
     index: false,
     follow: false,
