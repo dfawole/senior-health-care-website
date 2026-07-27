@@ -14,7 +14,7 @@ export default function NotFound() {
   const { notFoundPage } = siteContent;
 
   return (
-    <div className="bg-background py-24 sm:py-32">
+    <div className="bg-background py-20 sm:py-24">
       <Reveal className="mx-auto flex max-w-xl flex-col items-center gap-4 px-4 text-center">
         <Heart
           className="text-accent h-10 w-10"

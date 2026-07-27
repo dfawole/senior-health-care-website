@@ -1,4 +1,5 @@
 import type { ContentBlockContent } from "@/components/ContentBlock";
+import type { PhotoContent } from "@/components/PhotoBlock";
 
 export const aboutContent = {
   eyebrow: "About Us",
@@ -24,6 +25,13 @@ export const aboutContent = {
       body: "We understand that families need care they can trust to arrive reliably and respond quickly. Our care coordination team is structured to match the right carer to the right client, with the flexibility to adapt as circumstances change — because care needs rarely stay the same for long.",
     },
   ] satisfies ContentBlockContent[],
+
+  // Optional real photo. Omit entirely rather than using a stock/placeholder
+  // image — see the imagery rule in CLAUDE.md.
+  photo: {
+    src: "/images/team/bedside-care.jpeg",
+    alt: "Senior Health Care carers providing bedside support",
+  } satisfies PhotoContent,
 
   cta: {
     text: "Speak to Our Team",

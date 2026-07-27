@@ -37,21 +37,12 @@ async function loadGoogleFont(
 }
 
 export async function loadOgFonts() {
-  const [fraunces, inter] = await Promise.all([
-    loadGoogleFont("Fraunces", 600),
-    loadGoogleFont("Inter", 600),
-  ]);
+  const fraunces = await loadGoogleFont("Fraunces", 600);
 
   return [
     {
       name: "Fraunces",
       data: fraunces,
-      weight: 600 as const,
-      style: "normal" as const,
-    },
-    {
-      name: "Inter",
-      data: inter,
       weight: 600 as const,
       style: "normal" as const,
     },

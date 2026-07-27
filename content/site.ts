@@ -55,7 +55,11 @@ export const siteContent = {
     heroSecondaryCtaLabel: "Call Us",
     eligibilityTitle: (serviceName: string) =>
       `Is ${serviceName} Right for You?`,
+    whyChooseUsTitle: (serviceName: string) =>
+      `Why Choose Us for ${serviceName}`,
     includedTitle: (serviceName: string) => `What's Included in ${serviceName}`,
+    faqTitle: (serviceName: string) =>
+      `${serviceName} — Frequently Asked Questions`,
     closingCtaTitle: (serviceName: string) =>
       `Ready to Talk About ${serviceName}?`,
     closingCtaPrimaryLabel: "Call Now",

@@ -53,7 +53,7 @@ export default function Section({
   const hasHeading = Boolean(eyebrow || title || description);
 
   return (
-    <section id={id} className={`${tones.bg} py-24 sm:py-32`}>
+    <section id={id} className={`${tones.bg} py-20 sm:py-24`}>
       <Reveal className="mx-auto max-w-6xl px-4">
         {hasHeading && (
           <div className="mx-auto mb-12 max-w-2xl text-center">

@@ -4,6 +4,12 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { Star } from "lucide-react";
 
+const ENTER = { opacity: 0, y: 8 };
+const CENTER = { opacity: 1, y: 0 };
+const EXIT = { opacity: 0, y: -8 };
+const TRANSITION_NORMAL = { duration: 0.35 };
+const TRANSITION_REDUCED = { duration: 0 };
+
 export type TestimonialItem = {
   quote: string;
   name: string;
@@ -51,10 +57,12 @@ export default function TestimonialsCarousel({
         <AnimatePresence mode="wait" initial={false}>
           <motion.div
             key={activeIndex}
-            initial={prefersReducedMotion ? false : { opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={prefersReducedMotion ? undefined : { opacity: 0, y: -8 }}
-            transition={{ duration: prefersReducedMotion ? 0 : 0.35 }}
+            initial={prefersReducedMotion ? false : ENTER}
+            animate={CENTER}
+            exit={prefersReducedMotion ? undefined : EXIT}
+            transition={
+              prefersReducedMotion ? TRANSITION_REDUCED : TRANSITION_NORMAL
+            }
             className="flex flex-col items-center gap-6"
           >
             <div className="flex gap-1" aria-hidden="true">

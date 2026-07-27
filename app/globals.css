@@ -3,14 +3,25 @@
 :root {
   --color-primary: #1b2130;
   /* Darkened from #c1592e for WCAG AA (4.5:1) as text/button-fill on
-     cream/white. Do not lighten back — see CLAUDE.md contrast audit. */
-  --color-accent: #af512a;
+     cream/white, then re-darkened from #af512a when --color-background
+     deepened to #ede6d8 (was 4.55:1 on the old cream, dropped to 4.19:1 on
+     the new one — this value restores 4.56:1). Do not lighten back — see
+     CLAUDE.md contrast audit. */
+  --color-accent: #a64d28;
   /* Lightened tint of --color-accent, for accent-colored text specifically
      on the --color-primary (navy) background, where the base accent fails
      AA. Use text-accent-light instead of text-accent on dark backgrounds. */
   --color-accent-light: #d26c41;
-  --color-background: #f4efe6;
+  /* Deepened from #f4efe6 for a less bright, more premium cream. */
+  --color-background: #ede6d8;
   --color-text: #1a1a1a;
+  /* Single source of truth for the sticky header's height — Header.tsx
+     sizes itself to this, and Hero.tsx (photo mode) adds it on top of the
+     85vh target so the sticky header can never end up overlapping the
+     photo itself, at any scroll position, for any hero photo. Update this
+     one value if the header's height ever changes; nothing else needs to
+     change in sync with it. */
+  --header-height: 4rem;
 }
 
 @theme inline {
@@ -43,6 +54,36 @@ body {
 
 .animate-fade-in {
   animation: fade-in 0.3s ease-out;
+}
+
+@keyframes gentle-bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(6px);
+  }
+}
+
+.animate-gentle-bounce {
+  animation: gentle-bounce 2s ease-in-out infinite;
+}
+
+/* The track renders two back-to-back copies of the same card set (see
+   ServicesMarquee.tsx), so translating exactly -50% moves precisely one
+   full set-width — the loop point is invisible. */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 36s linear infinite;
 }
 
 /* Global kill-switch for CSS-driven transitions/animations (hover states,

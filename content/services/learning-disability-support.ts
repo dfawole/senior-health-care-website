@@ -5,6 +5,26 @@ export const learningDisabilitySupportContent: ServicePageContent = {
   heroHeadline: "Support That Builds Independence, Not Dependence",
   heroSubtext:
     "Practical, empowering support for individuals with learning disabilities — helping build skills, confidence, and a fuller independent life.",
+  whyChooseUs: [
+    {
+      icon: "graduationCap",
+      title: "Skills & Independence Focus",
+      description:
+        "Support structured around building daily living skills and confidence, not just providing supervision.",
+    },
+    {
+      icon: "compass",
+      title: "Community Access Support",
+      description:
+        "Help getting out into the community and social activities that matter, not just care within four walls.",
+    },
+    {
+      icon: "bookOpenCheck",
+      title: "Respectful Advocacy",
+      description:
+        "Support in appointments and decisions that respects the individual's voice and choices.",
+    },
+  ],
   eligibilityPoints: [
     "Support is needed to build daily living and independence skills",
     "Access to community activities and social opportunities would help quality of life",
@@ -28,5 +48,34 @@ export const learningDisabilitySupportContent: ServicePageContent = {
     name: "TBD",
     location: "TBD",
   },
+  // DRAFT FAQ content — first-pass copy, review before launch.
+  faqs: [
+    {
+      question: "What does 'independence-building' support actually look like?",
+      answer:
+        "Practical coaching on daily living skills — cooking, budgeting, using transport — paced around what the individual wants to achieve.",
+    },
+    {
+      question: "Can carers support community activities and outings?",
+      answer:
+        "Yes, community access and social activity support is a core part of this service, not an extra.",
+    },
+    {
+      question: "Do carers act as an advocate in appointments?",
+      answer:
+        "Yes, where needed, carers can provide advocacy and representation to make sure the individual's voice is heard.",
+    },
+    {
+      question: "Is support tailored to age and personality, not generic?",
+      answer:
+        "Yes — every plan is person-centred and age-appropriate rather than a standard template.",
+    },
+    {
+      question:
+        "Can this support work alongside a day service or college placement?",
+      answer:
+        "Yes, support is flexible and can be scheduled around existing commitments like college, work, or day services.",
+    },
+  ],
   ctaText: "Speak to Our Team",
 };

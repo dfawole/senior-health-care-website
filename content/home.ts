@@ -14,6 +14,14 @@ export const homeContent = {
       "Trusted, person-centred home care — from a helping hand with daily routines to full-time live-in support.",
     primaryCta: { label: "Speak to Our Team", href: "/contact" },
     secondaryCta: { label: "View Our Services", href: "#services" },
+    // TEMPORARY placeholder — mobility-support-2.jpeg is a close, intimate
+    // crop from the team gallery, not a hero-composed shot. Swap for wider,
+    // more environmental hero photography (more negative space for the
+    // text to sit over) once it's available.
+    photo: {
+      src: "/images/team/mobility-support.jpeg",
+      alt: "A carer providing mobility support to a client at home",
+    },
   } satisfies HeroContent,
 
   trustRow: {

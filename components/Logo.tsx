@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Heart } from "lucide-react";
+import ShcMonogram from "@/components/ShcMonogram";
 import { siteContent } from "@/content/site";
 
 type LogoProps = {
@@ -9,7 +9,6 @@ type LogoProps = {
 
 export default function Logo({ variant = "dark" }: LogoProps) {
   const textColor = variant === "dark" ? "text-primary" : "text-white";
-  const iconColor = variant === "dark" ? "text-accent" : "text-accent-light";
 
   return (
     <Link
@@ -17,13 +16,7 @@ export default function Logo({ variant = "dark" }: LogoProps) {
       aria-label={`${siteContent.name} — Home`}
       className={`inline-flex items-center gap-2 font-serif text-lg font-semibold tracking-wide ${textColor}`}
     >
-      <Heart
-        className={`h-5 w-5 shrink-0 ${iconColor}`}
-        strokeWidth={1.5}
-        fill="currentColor"
-        fillOpacity={0.15}
-        aria-hidden="true"
-      />
+      <ShcMonogram variant={variant} className="h-9 w-9 shrink-0" />
       {siteContent.name}
     </Link>
   );

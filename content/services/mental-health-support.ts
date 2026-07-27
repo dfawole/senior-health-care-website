@@ -5,6 +5,26 @@ export const mentalHealthSupportContent: ServicePageContent = {
   heroHeadline: "Compassionate Support for Mental Health, at Home",
   heroSubtext:
     "Person-centred support for individuals managing depression, anxiety, or motivation difficulties — encouragement and routine, delivered with patience.",
+  whyChooseUs: [
+    {
+      icon: "smile",
+      title: "Encouragement, Not Judgement",
+      description:
+        "Support focused on gentle encouragement with daily routines — patience first, always.",
+    },
+    {
+      icon: "messageCircle",
+      title: "Coordinated With Existing Care",
+      description:
+        "We work alongside your existing mental health professionals, not instead of them.",
+    },
+    {
+      icon: "shieldCheck",
+      title: "100% DBS-Checked Staff",
+      description:
+        "Every carer providing mental health support is enhanced DBS-checked and trained in person-centred support.",
+    },
+  ],
   eligibilityPoints: [
     "Low mood, anxiety, or motivation are making daily routines difficult to sustain",
     "Isolation has become a real concern, not just an occasional feeling",
@@ -28,5 +48,34 @@ export const mentalHealthSupportContent: ServicePageContent = {
     name: "TBD",
     location: "TBD",
   },
+  // DRAFT FAQ content — first-pass copy, review before launch.
+  faqs: [
+    {
+      question:
+        "Is this a replacement for therapy or clinical mental health care?",
+      answer:
+        "No — our support complements existing mental health care, providing practical, day-to-day encouragement alongside clinical treatment, not instead of it.",
+    },
+    {
+      question: "What kind of support is actually provided?",
+      answer:
+        "Person-centred emotional support, help sustaining daily routines, and encouragement to stay engaged with the community — tailored to what's genuinely useful for the individual.",
+    },
+    {
+      question: "Can support be increased if things get harder?",
+      answer:
+        "Yes, care plans are reviewed regularly and visit frequency can flex if needs change.",
+    },
+    {
+      question: "Do carers have specific mental health training?",
+      answer:
+        "Yes, carers providing this support are trained in person-centred approaches for depression, anxiety and low motivation.",
+    },
+    {
+      question: "How do you coordinate with our psychiatrist or GP?",
+      answer:
+        "With consent, we can coordinate alongside existing mental health professionals to keep support joined up.",
+    },
+  ],
   ctaText: "Speak to Our Team",
 };

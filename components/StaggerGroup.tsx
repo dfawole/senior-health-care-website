@@ -1,8 +1,15 @@
 "use client";
 
-import { motion, useReducedMotion, type Variants } from "framer-motion";
-import type { ReactNode } from "react";
+import {
+  motion,
+  useInView,
+  useReducedMotion,
+  type Variants,
+} from "framer-motion";
+import { useRef, type ReactNode, type RefObject } from "react";
 
+// Module-level and stable — see Reveal.tsx for why fresh object literals as
+// animation props on every render can leave an in-flight animation stuck.
 const container: Variants = {
   hidden: {},
   show: { transition: { staggerChildren: 0.08 } },
@@ -21,18 +28,53 @@ export default function StaggerGroup({
   className,
   as = "div",
 }: StaggerGroupProps) {
+  const ref = useRef<HTMLDivElement>(null);
   const prefersReducedMotion = useReducedMotion();
-  const MotionTag = as === "ul" ? motion.ul : motion.div;
+  const isInView = useInView(ref, { once: true, amount: 0.2 });
+
+  if (prefersReducedMotion) {
+    if (as === "ul") {
+      return (
+        <ul
+          ref={ref as unknown as RefObject<HTMLUListElement>}
+          className={className}
+        >
+          {children}
+        </ul>
+      );
+    }
+    return (
+      <div ref={ref} className={className}>
+        {children}
+      </div>
+    );
+  }
+
+  const animateState = isInView ? "show" : "hidden";
+
+  if (as === "ul") {
+    return (
+      <motion.ul
+        ref={ref as unknown as RefObject<HTMLUListElement>}
+        className={className}
+        initial="hidden"
+        animate={animateState}
+        variants={container}
+      >
+        {children}
+      </motion.ul>
+    );
+  }
 
   return (
-    <MotionTag
+    <motion.div
+      ref={ref}
       className={className}
-      initial={prefersReducedMotion ? false : "hidden"}
-      whileInView={prefersReducedMotion ? undefined : "show"}
-      viewport={{ once: true, amount: 0.2 }}
+      initial="hidden"
+      animate={animateState}
       variants={container}
     >
       {children}
-    </MotionTag>
+    </motion.div>
   );
 }
