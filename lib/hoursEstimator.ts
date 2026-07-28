@@ -48,7 +48,7 @@ export type HealthFlagId = (typeof HEALTH_FLAG_IDS)[number];
 // corresponding service page.
 export const HEALTH_FLAG_SERVICE_SLUGS: Record<HealthFlagId, string> = {
   memoryLoss: "dementia-care",
-  recentHospitalStay: "nursing-care",
+  recentHospitalStay: "hospital-step-down-care",
   complexCondition: "nursing-care",
 };
 

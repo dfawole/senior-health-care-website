@@ -3,6 +3,7 @@ import {
   AlarmClock,
   Brain,
   BookOpenCheck,
+  Building2,
   CalendarClock,
   Clock,
   Compass,
@@ -49,7 +50,8 @@ export type CardIconName =
   | "smile"
   | "messageCircle"
   | "compass"
-  | "bookOpenCheck";
+  | "bookOpenCheck"
+  | "building2";
 
 export type CardItem = {
   icon?: CardIconName;
@@ -86,6 +88,7 @@ export const iconMap: Record<CardIconName, LucideIcon> = {
   messageCircle: MessageCircle,
   compass: Compass,
   bookOpenCheck: BookOpenCheck,
+  building2: Building2,
 };
 
 export const cardClasses =

@@ -83,6 +83,13 @@ export const homeContent = {
           "Practical support that builds independence, skills and community access.",
         href: "/learning-disability-support",
       },
+      {
+        icon: "building2",
+        title: "Hospital Step-Down Care",
+        description:
+          "Bridging support after hospital discharge, picking up where NHS reablement leaves off.",
+        href: "/hospital-step-down-care",
+      },
     ] satisfies CardItem[],
   },
 

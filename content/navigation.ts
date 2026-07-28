@@ -16,6 +16,7 @@ export const serviceLinks: NavLink[] = [
     label: "Learning Disability Support",
     href: "/learning-disability-support",
   },
+  { label: "Hospital Step-Down Care", href: "/hospital-step-down-care" },
 ];
 
 export const secondaryNavLinks: NavLink[] = [
