@@ -46,6 +46,10 @@ export const personalCareContent: ServicePageContent = {
     "Continence care, handled with dignity",
     "Mobility support around the home",
   ],
+  includedPhoto: {
+    src: "/images/team/medication-1.jpeg",
+    alt: "Senior Health Care carer administering medication with care and dignity",
+  },
   relevantStat: { number: "100%", label: "DBS-Checked Care Staff" },
   photo: {
     src: "/images/team/mobility-support.jpeg",

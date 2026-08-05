@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Hero, { type HeroPhoto } from "@/components/Hero";
 import Section from "@/components/Section";
 import Checklist from "@/components/Checklist";
@@ -27,6 +28,11 @@ export type ServicePageContent = {
   whyChooseUs: CardItem[];
   eligibilityPoints: string[];
   includedItems: string[];
+  /** Optional real photo shown inline beside the "What's Included" list,
+   * for tying a specific photo to that list rather than a generic
+   * bottom-of-page block. Omit entirely rather than using a stock/placeholder
+   * image — see the imagery rule in CLAUDE.md. */
+  includedPhoto?: PhotoContent;
   relevantStat: StatHighlightContent;
   testimonial: ServiceTestimonial;
   faqs: FAQItem[];
@@ -46,6 +52,7 @@ export default function ServicePageLayout({
   whyChooseUs,
   eligibilityPoints,
   includedItems,
+  includedPhoto,
   relevantStat,
   testimonial,
   faqs,
@@ -81,9 +88,24 @@ export default function ServicePageLayout({
       </Section>
 
       <Section title={servicePage.includedTitle(serviceName)}>
-        <div className="mx-auto max-w-2xl">
-          <Checklist items={includedItems} enableListen />
-        </div>
+        {includedPhoto ? (
+          <div className="mx-auto grid max-w-4xl grid-cols-1 items-center gap-10 lg:grid-cols-2">
+            <Checklist items={includedItems} enableListen />
+            <div className="border-primary/10 overflow-hidden rounded-lg border">
+              <Image
+                src={includedPhoto.src}
+                alt={includedPhoto.alt}
+                width={1280}
+                height={1024}
+                className="h-auto w-full object-cover"
+              />
+            </div>
+          </div>
+        ) : (
+          <div className="mx-auto max-w-2xl">
+            <Checklist items={includedItems} enableListen />
+          </div>
+        )}
       </Section>
 
       {photo && (

@@ -38,6 +38,10 @@ export const nursingCareContent: ServicePageContent = {
     "Coordination with GPs and district nurses",
     "Support following hospital discharge",
   ],
+  includedPhoto: {
+    src: "/images/team/medication-2.jpeg",
+    alt: "Senior Health Care carer organizing a client's weekly medication",
+  },
   relevantStat: { number: "Same-Day", label: "Response to New Enquiries" },
   photo: {
     src: "/images/team/bedside-care.jpeg",
