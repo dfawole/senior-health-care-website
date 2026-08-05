@@ -19,7 +19,7 @@ export const homeContent = {
     // more environmental hero photography (more negative space for the
     // text to sit over) once it's available.
     photo: {
-      src: "/images/team/mobility-support-2.jpeg",
+      src: "/images/team/mobility-support.jpeg",
       alt: "A Senior Health Care carer supporting a client using a walking frame at home",
     },
   } satisfies HeroContent,
