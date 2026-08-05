@@ -4,6 +4,7 @@ import Section from "@/components/Section";
 import CardGrid from "@/components/CardGrid";
 import TwoColumnBlocks from "@/components/TwoColumnBlocks";
 import Checklist from "@/components/Checklist";
+import PhotoBlock from "@/components/PhotoBlock";
 import DynamicForm from "@/components/DynamicForm";
 import { careersContent } from "@/content/careers";
 import { buildPageMetadata } from "@/lib/metadata";
@@ -40,6 +41,12 @@ export default function CareersPage() {
       <Section title={careersContent.sectionHeadings.rolesTypes} tone="muted">
         <TwoColumnBlocks items={rolesTypeBlocks} />
       </Section>
+
+      {careersContent.photo && (
+        <Section>
+          <PhotoBlock {...careersContent.photo} />
+        </Section>
+      )}
 
       <Section title={careersContent.sectionHeadings.requirements}>
         <div className="mx-auto max-w-2xl">

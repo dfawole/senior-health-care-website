@@ -5,13 +5,9 @@ export const personalCareContent: ServicePageContent = {
   heroHeadline: "Personal Care, With Dignity at the Centre",
   heroSubtext:
     "Support with the everyday routines that matter — washing, dressing, medication — delivered by carers who take the time to do it right.",
-  // TEMPORARY placeholder — bedside-care.jpeg is a close, intimate crop from
-  // the team gallery, not a hero-composed shot. Swap for wider, more
-  // environmental hero photography (more negative space for the text to sit
-  // over) once it's available.
   heroPhoto: {
-    src: "/images/team/bedside-care.jpeg",
-    alt: "A Senior Health Care carer supporting a client at home",
+    src: "/images/team/medication-1.jpeg",
+    alt: "Senior Health Care carer administering medication with care and dignity",
   },
   whyChooseUs: [
     {
@@ -46,15 +42,7 @@ export const personalCareContent: ServicePageContent = {
     "Continence care, handled with dignity",
     "Mobility support around the home",
   ],
-  includedPhoto: {
-    src: "/images/team/medication-1.jpeg",
-    alt: "Senior Health Care carer administering medication with care and dignity",
-  },
   relevantStat: { number: "100%", label: "DBS-Checked Care Staff" },
-  photo: {
-    src: "/images/team/mobility-support.jpeg",
-    alt: "A carer providing mobility support to a client at home",
-  },
   // DRAFT testimonial — placeholder for copy review. Swap for a real client
   // testimonial (with permission) before launch.
   testimonial: {

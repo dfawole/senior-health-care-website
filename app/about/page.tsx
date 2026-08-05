@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Hero from "@/components/Hero";
 import Section from "@/components/Section";
 import ContentBlock from "@/components/ContentBlock";
-import PhotoBlock from "@/components/PhotoBlock";
 import CTABanner from "@/components/CTABanner";
 import StaggerGroup from "@/components/StaggerGroup";
 import StaggerItem from "@/components/StaggerItem";
@@ -31,12 +30,6 @@ export default function AboutPage() {
           ))}
         </StaggerGroup>
       </Section>
-
-      {aboutContent.photo && (
-        <Section>
-          <PhotoBlock {...aboutContent.photo} />
-        </Section>
-      )}
 
       <CTABanner
         title={aboutContent.cta.text}

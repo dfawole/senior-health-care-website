@@ -1,5 +1,6 @@
 import type { ContentBlockContent } from "@/components/ContentBlock";
 import type { FormFieldsConfig } from "@/components/DynamicForm";
+import type { PhotoContent } from "@/components/PhotoBlock";
 
 export const careersContent = {
   eyebrow: "Careers",
@@ -34,6 +35,13 @@ export const careersContent = {
       body: "Join a team that genuinely values the people it supports — and the people who provide that support.",
     },
   ] satisfies ContentBlockContent[],
+
+  // Optional real photo. Omit entirely rather than using a stock/placeholder
+  // image — see the imagery rule in CLAUDE.md.
+  photo: {
+    src: "/images/team/mobility-support.jpeg",
+    alt: "A carer providing mobility support to a client at home",
+  } satisfies PhotoContent,
 
   rolesTypes: [
     {

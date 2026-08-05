@@ -5,6 +5,10 @@ export const mentalHealthSupportContent: ServicePageContent = {
   heroHeadline: "Compassionate Support for Mental Health, at Home",
   heroSubtext:
     "Person-centred support for individuals managing depression, anxiety, or motivation difficulties — encouragement and routine, delivered with patience.",
+  heroPhoto: {
+    src: "/images/team/garden-conversation.jpeg",
+    alt: "Senior Health Care carer in conversation with a client in the garden",
+  },
   whyChooseUs: [
     {
       icon: "smile",

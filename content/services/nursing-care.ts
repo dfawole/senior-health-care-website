@@ -5,6 +5,10 @@ export const nursingCareContent: ServicePageContent = {
   heroHeadline: "Skilled Nursing Care, At Home",
   heroSubtext:
     "Clinical support for complex or long-term health needs, from carers trained to manage them properly — without leaving home.",
+  heroPhoto: {
+    src: "/images/team/medication-2.jpeg",
+    alt: "Senior Health Care carer organizing a client's weekly medication",
+  },
   whyChooseUs: [
     {
       icon: "stethoscope",
@@ -38,15 +42,7 @@ export const nursingCareContent: ServicePageContent = {
     "Coordination with GPs and district nurses",
     "Support following hospital discharge",
   ],
-  includedPhoto: {
-    src: "/images/team/medication-2.jpeg",
-    alt: "Senior Health Care carer organizing a client's weekly medication",
-  },
   relevantStat: { number: "Same-Day", label: "Response to New Enquiries" },
-  photo: {
-    src: "/images/team/bedside-care.jpeg",
-    alt: "Senior Health Care carers providing bedside support",
-  },
   // DRAFT testimonial — placeholder for copy review. Swap for a real client
   // testimonial (with permission) before launch.
   testimonial: {

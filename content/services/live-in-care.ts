@@ -5,6 +5,10 @@ export const liveInCareContent: ServicePageContent = {
   heroHeadline: "Round-the-Clock Care, Without Leaving Home",
   heroSubtext:
     "A dedicated carer living in your home, providing continuous support and companionship — the alternative to a care home that keeps you where you belong.",
+  heroPhoto: {
+    src: "/images/team/bedside-care.jpeg",
+    alt: "Senior Health Care carers providing dedicated live-in support at a client's bedside",
+  },
   whyChooseUs: [
     {
       icon: "home",
