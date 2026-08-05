@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { Download } from "lucide-react";
 import Hero, { type HeroPhoto } from "@/components/Hero";
 import Section from "@/components/Section";
 import Checklist from "@/components/Checklist";
@@ -10,7 +11,9 @@ import TestimonialCard from "@/components/TestimonialCard";
 import PhotoBlock, { type PhotoContent } from "@/components/PhotoBlock";
 import FAQAccordion, { type FAQItem } from "@/components/FAQAccordion";
 import CTABanner from "@/components/CTABanner";
+import ProcessSteps from "@/components/ProcessSteps";
 import { siteContent } from "@/content/site";
+import { homeContent } from "@/content/home";
 
 export type ServiceTestimonial = {
   quote: string;
@@ -20,6 +23,9 @@ export type ServiceTestimonial = {
 
 export type ServicePageContent = {
   serviceName: string;
+  /** Route segment, e.g. "personal-care" — also used as the filename for
+   * the generated PDF guide at /guides/<slug>.pdf. */
+  slug: string;
   heroHeadline: string;
   heroSubtext: string;
   /** Optional hero background photo. Omit for the default solid
@@ -35,6 +41,10 @@ export type ServicePageContent = {
   includedPhoto?: PhotoContent;
   relevantStat: StatHighlightContent;
   testimonial: ServiceTestimonial;
+  /** Titles of exactly two other services to surface in the "You Might
+   * Also Be Interested In" section, matched against
+   * homeContent.services.items — not a separate content copy. */
+  relatedServices?: [string, string];
   faqs: FAQItem[];
   ctaText?: string;
   /** Optional real photo. Omit entirely rather than using a stock/placeholder
@@ -46,6 +56,7 @@ type ServicePageLayoutProps = ServicePageContent;
 
 export default function ServicePageLayout({
   serviceName,
+  slug,
   heroHeadline,
   heroSubtext,
   heroPhoto,
@@ -55,12 +66,17 @@ export default function ServicePageLayout({
   includedPhoto,
   relevantStat,
   testimonial,
+  relatedServices,
   faqs,
   ctaText,
   photo,
 }: ServicePageLayoutProps) {
   const { servicePage, phone } = siteContent;
   const primaryCtaLabel = ctaText ?? servicePage.defaultCtaText;
+  const allServices: CardItem[] = homeContent.services.items;
+  const relatedItems: CardItem[] = (relatedServices ?? [])
+    .map((title) => allServices.find((item) => item.title === title))
+    .filter((item): item is CardItem => item !== undefined);
 
   return (
     <>
@@ -106,6 +122,20 @@ export default function ServicePageLayout({
             <Checklist items={includedItems} enableListen />
           </div>
         )}
+        <div className="mx-auto mt-8 flex max-w-2xl justify-center">
+          <a
+            href={`/guides/${slug}.pdf`}
+            download
+            className="text-primary inline-flex items-center gap-2 text-sm font-semibold hover:underline"
+          >
+            <Download
+              className="h-4 w-4"
+              strokeWidth={1.5}
+              aria-hidden="true"
+            />
+            {servicePage.downloadGuideLabel}
+          </a>
+        </div>
       </Section>
 
       {photo && (
@@ -128,14 +158,28 @@ export default function ServicePageLayout({
         </div>
       </Section>
 
-      <Section
-        eyebrow="FAQs"
-        title={servicePage.faqTitle(serviceName)}
-        tone="muted"
-      >
+      {relatedItems.length > 0 && (
+        <Section
+          eyebrow={servicePage.relatedServicesEyebrow}
+          title={servicePage.relatedServicesTitle}
+          tone="muted"
+        >
+          <CardGrid items={relatedItems} />
+        </Section>
+      )}
+
+      <Section eyebrow="FAQs" title={servicePage.faqTitle(serviceName)}>
         <div className="mx-auto max-w-2xl">
           <FAQAccordion items={faqs} />
         </div>
+      </Section>
+
+      <Section
+        eyebrow={siteContent.processSteps.eyebrow}
+        title={siteContent.processSteps.title}
+        tone="muted"
+      >
+        <ProcessSteps />
       </Section>
 
       <CTABanner

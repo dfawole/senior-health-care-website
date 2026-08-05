@@ -2,6 +2,7 @@ import type { ServicePageContent } from "@/components/ServicePageLayout";
 
 export const respiteCareContent: ServicePageContent = {
   serviceName: "Respite Care",
+  slug: "respite-care",
   heroHeadline: "A Break for You, Without a Break in Their Care",
   heroSubtext:
     "Short-term cover that lets family carers rest, travel, or simply breathe — while your loved one stays supported by carers they trust.",
@@ -39,6 +40,7 @@ export const respiteCareContent: ServicePageContent = {
     "Emergency respite where capacity allows",
   ],
   relevantStat: { number: "Same-Day", label: "Response to New Enquiries" },
+  relatedServices: ["Personal Care", "Live-in Care"],
   // DRAFT testimonial — placeholder for copy review. Swap for a real client
   // testimonial (with permission) before launch.
   testimonial: {

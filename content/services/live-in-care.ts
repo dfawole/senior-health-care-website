@@ -2,6 +2,7 @@ import type { ServicePageContent } from "@/components/ServicePageLayout";
 
 export const liveInCareContent: ServicePageContent = {
   serviceName: "Live-in Care",
+  slug: "live-in-care",
   heroHeadline: "Round-the-Clock Care, Without Leaving Home",
   heroSubtext:
     "A dedicated carer living in your home, providing continuous support and companionship — the alternative to a care home that keeps you where you belong.",
@@ -43,6 +44,7 @@ export const liveInCareContent: ServicePageContent = {
     "Regular carer rotation for continuity and rest",
   ],
   relevantStat: { number: "Free", label: "No-Obligation Care Assessment" },
+  relatedServices: ["Personal Care", "Nursing Care"],
   // DRAFT testimonial — placeholder for copy review. Swap for a real client
   // testimonial (with permission) before launch.
   testimonial: {

@@ -17,6 +17,9 @@
 /.next/
 /out/
 
+# generated at build time by scripts/generate-pdfs.tsx (see "prebuild")
+/public/guides/
+
 # production
 /build
 

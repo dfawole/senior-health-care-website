@@ -2,6 +2,7 @@ import type { ServicePageContent } from "@/components/ServicePageLayout";
 
 export const personalCareContent: ServicePageContent = {
   serviceName: "Personal Care",
+  slug: "personal-care",
   heroHeadline: "Personal Care, With Dignity at the Centre",
   heroSubtext:
     "Support with the everyday routines that matter — washing, dressing, medication — delivered by carers who take the time to do it right.",
@@ -43,6 +44,7 @@ export const personalCareContent: ServicePageContent = {
     "Mobility support around the home",
   ],
   relevantStat: { number: "100%", label: "DBS-Checked Care Staff" },
+  relatedServices: ["Live-in Care", "Respite Care"],
   // DRAFT testimonial — placeholder for copy review. Swap for a real client
   // testimonial (with permission) before launch.
   testimonial: {

@@ -2,6 +2,7 @@ import type { ServicePageContent } from "@/components/ServicePageLayout";
 
 export const mentalHealthSupportContent: ServicePageContent = {
   serviceName: "Mental Health Support",
+  slug: "mental-health-support",
   heroHeadline: "Compassionate Support for Mental Health, at Home",
   heroSubtext:
     "Person-centred support for individuals managing depression, anxiety, or motivation difficulties — encouragement and routine, delivered with patience.",
@@ -43,6 +44,7 @@ export const mentalHealthSupportContent: ServicePageContent = {
     "Coordination alongside existing mental health professionals",
   ],
   relevantStat: { number: "100%", label: "DBS-Checked Care Staff" },
+  relatedServices: ["Dementia Care", "Learning Disability Support"],
   // UNFILLED PLACEHOLDER — blocking before launch. No real client testimonial
   // exists yet for this service. Do not invent one; replace with a real,
   // consented client quote before this page goes live.

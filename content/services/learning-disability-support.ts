@@ -2,6 +2,7 @@ import type { ServicePageContent } from "@/components/ServicePageLayout";
 
 export const learningDisabilitySupportContent: ServicePageContent = {
   serviceName: "Learning Disability Support",
+  slug: "learning-disability-support",
   heroHeadline: "Support That Builds Independence, Not Dependence",
   heroSubtext:
     "Practical, empowering support for individuals with learning disabilities — helping build skills, confidence, and a fuller independent life.",
@@ -39,6 +40,7 @@ export const learningDisabilitySupportContent: ServicePageContent = {
     "Person-centred, respectful support",
   ],
   relevantStat: { number: "1:1", label: "Consistent Carer Matching" },
+  relatedServices: ["Mental Health Support", "Respite Care"],
   // UNFILLED PLACEHOLDER — blocking before launch. No real client testimonial
   // exists yet for this service. Do not invent one; replace with a real,
   // consented client quote before this page goes live.

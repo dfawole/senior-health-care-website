@@ -2,6 +2,7 @@ import type { ServicePageContent } from "@/components/ServicePageLayout";
 
 export const nursingCareContent: ServicePageContent = {
   serviceName: "Nursing Care",
+  slug: "nursing-care",
   heroHeadline: "Skilled Nursing Care, At Home",
   heroSubtext:
     "Clinical support for complex or long-term health needs, from carers trained to manage them properly — without leaving home.",
@@ -43,6 +44,7 @@ export const nursingCareContent: ServicePageContent = {
     "Support following hospital discharge",
   ],
   relevantStat: { number: "Same-Day", label: "Response to New Enquiries" },
+  relatedServices: ["Hospital Step-Down Care", "Dementia Care"],
   // DRAFT testimonial — placeholder for copy review. Swap for a real client
   // testimonial (with permission) before launch.
   testimonial: {

@@ -2,6 +2,7 @@ import type { ServicePageContent } from "@/components/ServicePageLayout";
 
 export const dementiaCareContent: ServicePageContent = {
   serviceName: "Dementia Care",
+  slug: "dementia-care",
   heroHeadline: "Dementia Care That Knows the Person, Not Just the Condition",
   heroSubtext:
     "Specialist support from carers trained to work with memory loss, confusion and changing behaviour — with patience, not just procedure.",
@@ -39,6 +40,7 @@ export const dementiaCareContent: ServicePageContent = {
     "Family guidance and support",
   ],
   relevantStat: { number: "1:1", label: "Consistent Carer Matching" },
+  relatedServices: ["Nursing Care", "Mental Health Support"],
   // DRAFT testimonial — placeholder for copy review. Swap for a real client
   // testimonial (with permission) before launch.
   testimonial: {

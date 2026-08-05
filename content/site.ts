@@ -5,6 +5,10 @@ export const siteContent = {
     display: "0800 123 4567",
     href: "tel:+448001234567",
   },
+  email: {
+    display: "admin@seniorhealthcare.org.uk",
+    href: "mailto:admin@seniorhealthcare.org.uk",
+  },
   cqc: {
     headerBadgeLabel: "CQC",
     headerBadgeAriaLabel: "CQC rated",
@@ -58,11 +62,38 @@ export const siteContent = {
     whyChooseUsTitle: (serviceName: string) =>
       `Why Choose Us for ${serviceName}`,
     includedTitle: (serviceName: string) => `What's Included in ${serviceName}`,
+    downloadGuideLabel: "Download Guide (PDF)",
+    relatedServicesEyebrow: "Explore Further",
+    relatedServicesTitle: "You Might Also Be Interested In",
     faqTitle: (serviceName: string) =>
       `${serviceName} — Frequently Asked Questions`,
     closingCtaTitle: (serviceName: string) =>
       `Ready to Talk About ${serviceName}?`,
     closingCtaPrimaryLabel: "Call Now",
     closingCtaSecondaryLabel: "Request a Callback",
+  },
+  processSteps: {
+    eyebrow: "How It Works",
+    title: "What Happens Next",
+    items: [
+      {
+        icon: "phoneCall",
+        title: "Get in Touch",
+        description:
+          "Call us or send an enquiry, and we'll talk through your situation.",
+      },
+      {
+        icon: "clipboardCheck",
+        title: "Free Assessment",
+        description:
+          "We visit to understand your needs and build a personalised care plan.",
+      },
+      {
+        icon: "heartHandshake",
+        title: "Care Begins",
+        description:
+          "Your carer starts, matched to your preferences and ready to help.",
+      },
+    ],
   },
 } as const;

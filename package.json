@@ -4,7 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "prebuild": "tsx scripts/generate-pdfs.tsx",
     "build": "next build",
+    "generate:pdfs": "tsx scripts/generate-pdfs.tsx",
     "start": "next start",
     "lint": "eslint",
     "format": "prettier --write .",
@@ -13,6 +15,7 @@
   "dependencies": {
     "@anthropic-ai/sdk": "^0.114.0",
     "@radix-ui/react-select": "^2.3.6",
+    "@react-pdf/renderer": "^4.5.1",
     "framer-motion": "^12.42.2",
     "lucide-react": "^1.25.0",
     "next": "^15",
@@ -32,6 +35,7 @@
     "prettier": "^3.9.5",
     "prettier-plugin-tailwindcss": "^0.8.1",
     "tailwindcss": "^4",
+    "tsx": "^4.23.8",
     "typescript": "^5"
   }
 }

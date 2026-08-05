@@ -2,6 +2,7 @@ import type { ServicePageContent } from "@/components/ServicePageLayout";
 
 export const hospitalStepDownContent: ServicePageContent = {
   serviceName: "Hospital Step-Down Care",
+  slug: "hospital-step-down-care",
   heroHeadline: "Home Care That Bridges the Gap After Hospital",
   heroSubtext:
     "NHS-funded reablement care typically runs for up to 6 weeks after discharge. We help families bridge the gap that often follows — before long-term council support is confirmed.",
@@ -43,6 +44,7 @@ export const hospitalStepDownContent: ServicePageContent = {
     "Flexible response tailored to the urgency of your situation",
   ],
   relevantStat: { number: "Same-Day", label: "Response to New Enquiries" },
+  relatedServices: ["Nursing Care", "Live-in Care"],
   // UNFILLED PLACEHOLDER — blocking before launch. No real client testimonial
   // exists yet for this service. Do not invent one; replace with a real,
   // consented client quote before this page goes live.
