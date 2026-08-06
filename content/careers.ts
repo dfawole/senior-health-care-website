@@ -6,7 +6,7 @@ export const careersContent = {
   eyebrow: "Careers",
   heading: "Build a Career That Actually Cares",
   subtext:
-    "We're always looking for compassionate, reliable carers to join our team — whether you're looking for permanent hours or flexible bank shifts.",
+    "We're always looking for compassionate, reliable carers to join our team, whether you're looking for permanent hours or flexible bank shifts.",
 
   // Section headings, not covered by the original content spec — added so
   // each rendered section has a heading rather than hardcoding one in the
@@ -20,7 +20,7 @@ export const careersContent = {
   whyJoinUs: [
     {
       heading: "Flexible Working",
-      body: "Choose from permanent employed roles or flexible bank shifts — mornings, afternoons, evenings, nights and weekends available.",
+      body: "Choose from permanent employed roles or flexible bank shifts, mornings, afternoons, evenings, nights and weekends available.",
     },
     {
       heading: "Real Training",
@@ -32,7 +32,7 @@ export const careersContent = {
     },
     {
       heading: "Work That Matters",
-      body: "Join a team that genuinely values the people it supports — and the people who provide that support.",
+      body: "Join a team that genuinely values the people it supports, and the people who provide that support.",
     },
   ] satisfies ContentBlockContent[],
 

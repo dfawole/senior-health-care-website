@@ -5,7 +5,7 @@ export const nursingCareContent: ServicePageContent = {
   slug: "nursing-care",
   heroHeadline: "Skilled Nursing Care, At Home",
   heroSubtext:
-    "Clinical support for complex or long-term health needs, from carers trained to manage them properly — without leaving home.",
+    "Clinical support for complex or long-term health needs, from carers trained to manage them properly without leaving home.",
   heroPhoto: {
     src: "/images/team/medication-2.jpeg",
     alt: "Senior Health Care carer organizing a client's weekly medication",
@@ -27,7 +27,7 @@ export const nursingCareContent: ServicePageContent = {
       icon: "alarmClock",
       title: "Same-Day Response",
       description:
-        "New nursing care enquiries are assessed the same day — because complex needs don't wait.",
+        "New nursing care enquiries are assessed the same day because complex needs don't wait.",
     },
   ],
   eligibilityPoints: [

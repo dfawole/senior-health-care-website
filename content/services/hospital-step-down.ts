@@ -5,7 +5,7 @@ export const hospitalStepDownContent: ServicePageContent = {
   slug: "hospital-step-down-care",
   heroHeadline: "Home Care That Bridges the Gap After Hospital",
   heroSubtext:
-    "NHS-funded reablement care typically runs for up to 6 weeks after discharge. We help families bridge the gap that often follows — before long-term council support is confirmed.",
+    "NHS-funded reablement care typically runs for up to 6 weeks after discharge. We help families bridge the gap that often follows before long-term council support is confirmed.",
   heroPhoto: {
     src: "/images/team/hoist-support.jpeg",
     alt: "Senior Health Care carers providing hoist support during recovery",

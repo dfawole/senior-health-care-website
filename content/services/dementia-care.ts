@@ -5,13 +5,13 @@ export const dementiaCareContent: ServicePageContent = {
   slug: "dementia-care",
   heroHeadline: "Dementia Care That Knows the Person, Not Just the Condition",
   heroSubtext:
-    "Specialist support from carers trained to work with memory loss, confusion and changing behaviour — with patience, not just procedure.",
+    "Specialist support from carers trained to work with memory loss, confusion and changing behaviour, with patience, not just procedure.",
   whyChooseUs: [
     {
       icon: "brain",
       title: "Dementia-Trained Specialists",
       description:
-        "Carers trained specifically in memory loss, confusion and behavioural changes — not generalist cover.",
+        "Carers trained specifically in memory loss, confusion and behavioural changes, not generalist cover.",
     },
     {
       icon: "repeat",

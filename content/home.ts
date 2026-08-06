@@ -11,7 +11,7 @@ export const homeContent = {
     eyebrow: "Domiciliary Care Across the UK",
     title: "Compassionate Care,\nat Home",
     subhead:
-      "Trusted, person-centred home care — from a helping hand with daily routines to full-time live-in support.",
+      "Trusted, person-centred home care, from a helping hand with daily routines to full-time live-in support.",
     primaryCta: { label: "Speak to Our Team", href: "/contact" },
     secondaryCta: { label: "View Our Services", href: "#services" },
     // TEMPORARY placeholder — mobility-support-2.jpeg is a close, intimate
@@ -32,7 +32,7 @@ export const homeContent = {
     eyebrow: "Our Services",
     title: "Care Built Around You",
     description:
-      "Whatever level of support your family needs, we're here to help — at home, on your terms.",
+      "Whatever level of support your family needs, we're here to help at home, on your terms.",
     items: [
       {
         icon: "heart",
@@ -96,7 +96,7 @@ export const homeContent = {
   careAssessmentPrompt: {
     heading: "Not Sure What Level of Care You Need?",
     subtext:
-      "Try our free Care Needs Assessment — answer a few quick questions to get an indicative estimate of weekly care hours.",
+      "Try our free Care Needs Assessment, answer a few quick questions to get an indicative estimate of weekly care hours.",
     ctaLabel: "Try the Care Needs Assessment",
   },
 
@@ -104,7 +104,7 @@ export const homeContent = {
     eyebrow: "Why Choose Us",
     title: "A Different Kind of Home Care",
     paragraph:
-      "We believe good care starts with really knowing someone — not just their needs, but their routines, their preferences and their family. That's the standard every visit is held to.",
+      "We believe good care starts with really knowing someone, not just their needs, but their routines, their preferences and their family. That's the standard every visit is held to.",
     points: [
       "Fully trained, DBS-checked carers",
       "Consistent carer matching, visit after visit",
@@ -137,21 +137,18 @@ export const homeContent = {
         quote:
           "The carers treat my mother with such patience and dignity. It's given our whole family peace of mind.",
         name: "Sarah",
-        area: "Bromley",
         rating: 5,
       },
       {
         quote:
-          "Having the same carer every visit has made such a difference — she knows exactly what Dad needs.",
+          "Having the same carer every visit has made such a difference, she knows exactly what Dad needs.",
         name: "James",
-        area: "Leeds",
         rating: 5,
       },
       {
         quote:
           "Professional, warm and always on time. I couldn't ask for better support at home.",
         name: "Margaret",
-        area: "Bristol",
         rating: 5,
       },
     ] satisfies TestimonialItem[],

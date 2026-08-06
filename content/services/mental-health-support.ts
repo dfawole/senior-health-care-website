@@ -5,7 +5,7 @@ export const mentalHealthSupportContent: ServicePageContent = {
   slug: "mental-health-support",
   heroHeadline: "Compassionate Support for Mental Health, at Home",
   heroSubtext:
-    "Person-centred support for individuals managing depression, anxiety, or motivation difficulties — encouragement and routine, delivered with patience.",
+    "Person-centred support for individuals managing depression, anxiety, or motivation difficulties, encouragement and routine, delivered with patience.",
   heroPhoto: {
     src: "/images/team/garden-conversation.jpeg",
     alt: "Senior Health Care carer in conversation with a client in the garden",
@@ -15,7 +15,7 @@ export const mentalHealthSupportContent: ServicePageContent = {
       icon: "smile",
       title: "Encouragement, Not Judgement",
       description:
-        "Support focused on gentle encouragement with daily routines — patience first, always.",
+        "Support focused on gentle encouragement with daily routines. Patience first, always.",
     },
     {
       icon: "messageCircle",

@@ -5,7 +5,7 @@ export const liveInCareContent: ServicePageContent = {
   slug: "live-in-care",
   heroHeadline: "Round-the-Clock Care, Without Leaving Home",
   heroSubtext:
-    "A dedicated carer living in your home, providing continuous support and companionship — the alternative to a care home that keeps you where you belong.",
+    "A dedicated carer living in your home, providing continuous support and companionship. The alternative to a care home that keeps you where you belong.",
   heroPhoto: {
     src: "/images/team/bedside-care.jpeg",
     alt: "Senior Health Care carers providing dedicated live-in support at a client's bedside",
@@ -15,7 +15,7 @@ export const liveInCareContent: ServicePageContent = {
       icon: "home",
       title: "Stay in Your Own Home",
       description:
-        "A genuine alternative to a care home — the same bed, garden and daily life, with round-the-clock support.",
+        "A genuine alternative to a care home, the same bed, garden and daily life, with round-the-clock support.",
     },
     {
       icon: "moon",

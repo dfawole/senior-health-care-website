@@ -5,13 +5,13 @@ export const respiteCareContent: ServicePageContent = {
   slug: "respite-care",
   heroHeadline: "A Break for You, Without a Break in Their Care",
   heroSubtext:
-    "Short-term cover that lets family carers rest, travel, or simply breathe — while your loved one stays supported by carers they trust.",
+    "Short-term cover that lets family carers rest, travel, or simply breathe, while your loved one stays supported by carers they trust.",
   whyChooseUs: [
     {
       icon: "calendarClock",
       title: "Flexible, From Days to Weeks",
       description:
-        "Cover exactly as long as you need it — a weekend, a holiday, or an extended break.",
+        "Cover exactly as long as you need it, a weekend, a holiday, or an extended break.",
     },
     {
       icon: "phoneCall",
@@ -54,12 +54,12 @@ export const respiteCareContent: ServicePageContent = {
     {
       question: "How much notice do you need for respite care?",
       answer:
-        "We aim to respond to new respite enquiries the same day, and can often arrange cover at short notice — call us to check availability.",
+        "We aim to respond to new respite enquiries the same day, and can often arrange cover at short notice, call us to check availability.",
     },
     {
       question: "How long can respite care last?",
       answer:
-        "From a few hours to several weeks, whatever suits your situation — there's no fixed minimum or maximum.",
+        "From a few hours to several weeks, whatever suits your situation, there's no fixed minimum or maximum.",
     },
     {
       question: "Will it be a carer my relative already knows?",
@@ -69,7 +69,7 @@ export const respiteCareContent: ServicePageContent = {
     {
       question: "Can respite care be arranged for emergencies?",
       answer:
-        "Yes, emergency respite is available where capacity allows — get in touch as early as possible.",
+        "Yes, emergency respite is available where capacity allows, get in touch as early as possible.",
     },
     {
       question:

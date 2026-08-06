@@ -5,7 +5,7 @@ export const learningDisabilitySupportContent: ServicePageContent = {
   slug: "learning-disability-support",
   heroHeadline: "Support That Builds Independence, Not Dependence",
   heroSubtext:
-    "Practical, empowering support for individuals with learning disabilities — helping build skills, confidence, and a fuller independent life.",
+    "Practical, empowering support for individuals with learning disabilities, helping build skills, confidence, and a fuller independent life.",
   whyChooseUs: [
     {
       icon: "graduationCap",
@@ -55,7 +55,7 @@ export const learningDisabilitySupportContent: ServicePageContent = {
     {
       question: "What does 'independence-building' support actually look like?",
       answer:
-        "Practical coaching on daily living skills — cooking, budgeting, using transport — paced around what the individual wants to achieve.",
+        "Practical coaching on daily living skills — cooking, budgeting, using transport paced around what the individual wants to achieve.",
     },
     {
       question: "Can carers support community activities and outings?",

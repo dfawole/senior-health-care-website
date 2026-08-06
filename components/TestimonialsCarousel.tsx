@@ -13,7 +13,6 @@ const TRANSITION_REDUCED = { duration: 0 };
 export type TestimonialItem = {
   quote: string;
   name: string;
-  area: string;
   rating: number;
 };
 
@@ -83,9 +82,7 @@ export default function TestimonialsCarousel({
               <span className="bg-primary flex h-12 w-12 items-center justify-center rounded-full text-sm font-semibold text-white">
                 {getInitials(active.name)}
               </span>
-              <p className="text-text/60 text-sm">
-                {active.name}, {active.area}
-              </p>
+              <p className="text-text/60 text-sm">{active.name}</p>
             </div>
           </motion.div>
         </AnimatePresence>

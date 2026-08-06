@@ -3,7 +3,7 @@ import type { FormFieldsConfig } from "@/components/DynamicForm";
 export const carerMatchingContent = {
   heading: "Help Us Match You With the Right Carer",
   subtext:
-    "Every family has different preferences. Tell us what matters most, and we'll do our best to match accordingly — though we can't always guarantee availability.",
+    "Every family has different preferences. Tell us what matters most, and we'll do our best to match accordingly, though we can't always guarantee availability.",
 
   fields: {
     language: {

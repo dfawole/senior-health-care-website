@@ -5,7 +5,7 @@ export const personalCareContent: ServicePageContent = {
   slug: "personal-care",
   heroHeadline: "Personal Care, With Dignity at the Centre",
   heroSubtext:
-    "Support with the everyday routines that matter — washing, dressing, medication — delivered by carers who take the time to do it right.",
+    "Support with the everyday routines that matter, washing, dressing, and medication delivered by carers who take the time to do it right.",
   heroPhoto: {
     src: "/images/team/medication-1.jpeg",
     alt: "Senior Health Care carer administering medication with care and dignity",
@@ -15,7 +15,7 @@ export const personalCareContent: ServicePageContent = {
       icon: "userCheck",
       title: "Same Carer, Every Visit",
       description:
-        "Consistent carer matching means no strangers, no re-explaining routines — just familiar, dependable support.",
+        "Consistent carer matching means no strangers, no re-explaining routines, just familiar and dependable support.",
     },
     {
       icon: "shieldCheck",
@@ -27,7 +27,7 @@ export const personalCareContent: ServicePageContent = {
       icon: "handHeart",
       title: "Dignity-Led Approach",
       description:
-        "Personal care delivered with patience and respect — never rushed, never routine.",
+        "Personal care delivered with patience and respect, never rushed, never routine.",
     },
   ],
   eligibilityPoints: [
@@ -58,12 +58,12 @@ export const personalCareContent: ServicePageContent = {
     {
       question: "How quickly can personal care start?",
       answer:
-        "In most cases we can begin visits within a few days of your initial assessment, and sooner in urgent situations — call us to discuss timing.",
+        "In most cases we can begin visits within a few days of your initial assessment, and sooner in urgent situations, give us a call to discuss timing.",
     },
     {
       question: "Will the same carer visit every time?",
       answer:
-        "Yes — we match one consistent carer, with a trained backup for holidays or illness, so your routine and preferences stay familiar.",
+        "Yes, we match one consistent carer, with a trained backup for holidays or illness, so your routine and preferences stay familiar.",
     },
     {
       question: "Can visits be adjusted as needs change?",
@@ -78,7 +78,7 @@ export const personalCareContent: ServicePageContent = {
     {
       question: "What if my relative needs help with mobility too?",
       answer:
-        "Personal care includes mobility support around the home — carers are trained in safe moving and handling techniques.",
+        "Personal care includes mobility support around the home, carers are trained in safe moving and handling techniques.",
     },
   ],
   ctaText: "Speak to Our Team",

@@ -9,10 +9,10 @@ export const careAssessmentContent = {
   eyebrow: "Free Tool",
   heading: "Care Needs Assessment",
   subtext:
-    "Answer a few quick questions to get an indicative estimate of weekly care hours — a helpful starting point for your conversation with us.",
+    "Answer a few quick questions to get an indicative estimate of weekly care hours, a helpful starting point for your conversation with us.",
 
   disclaimer:
-    "This is an estimate to help guide your conversation with us — not a clinical assessment. Your actual care plan will be confirmed through a free, no-obligation assessment with our team.",
+    "This is an estimate to help guide your conversation with us, not a clinical assessment. Your actual care plan will be confirmed through a free, no-obligation assessment with our team.",
 
   steps: {
     whoFor: {
@@ -53,7 +53,7 @@ export const careAssessmentContent = {
     healthFlags: {
       title: "Any of the following?",
       description:
-        "Select all that apply — this doesn't affect your hours estimate, it just helps us point you to the most relevant service.",
+        "Select all that apply, this doesn't affect your hours estimate, it just helps us point you to the most relevant service.",
       options: [
         { id: "memoryLoss", label: "Memory loss or confusion" },
         { id: "recentHospitalStay", label: "Recent hospital stay" },
@@ -78,7 +78,7 @@ export const careAssessmentContent = {
     hoursLabel: "Estimated weekly care hours",
     hoursSuffix: "hours/week",
     noNeedsMessage:
-      "Based on your answers, we didn't identify specific regular support hours — but we're still happy to talk through what might help.",
+      "Based on your answers, we didn't identify specific regular support hours, but we're still happy to talk through what might help.",
     recommendedServicesHeading: "Services that may be relevant",
     ctaHeading: "Ready to talk it through?",
     ctaSubtext:
