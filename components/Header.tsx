@@ -37,7 +37,7 @@ export default function Header() {
             independent of the nav column's own max-width/centering below —
             it stays put at left-6 no matter how that column is adjusted. */}
         <div className="absolute top-1/2 left-6 -translate-y-1/2">
-          <Logo />
+          <Logo hideWordmarkBelowSm />
         </div>
 
         {/* Nav + right-cluster live inside the same mx-auto max-w-6xl
@@ -152,7 +152,6 @@ export default function Header() {
                 </svg>
               </button>
             </div>
-
           </div>
         </div>
       </div>

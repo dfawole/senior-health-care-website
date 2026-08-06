@@ -33,6 +33,8 @@ export const homeContent = {
     title: "Care Built Around You",
     description:
       "Whatever level of support your family needs, we're here to help at home, on your terms.",
+    scrollLeftLabel: "Scroll services left",
+    scrollRightLabel: "Scroll services right",
     items: [
       {
         icon: "heart",

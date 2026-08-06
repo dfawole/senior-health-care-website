@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { Star } from "lucide-react";
 
@@ -18,7 +18,6 @@ export type TestimonialItem = {
 
 type TestimonialsCarouselProps = {
   testimonials: TestimonialItem[];
-  intervalMs?: number;
 };
 
 function getInitials(name: string): string {
@@ -31,20 +30,9 @@ function getInitials(name: string): string {
 
 export default function TestimonialsCarousel({
   testimonials,
-  intervalMs = 6000,
 }: TestimonialsCarouselProps) {
   const [activeIndex, setActiveIndex] = useState(0);
   const prefersReducedMotion = useReducedMotion();
-
-  useEffect(() => {
-    if (testimonials.length <= 1) return;
-
-    const timer = setInterval(() => {
-      setActiveIndex((current) => (current + 1) % testimonials.length);
-    }, intervalMs);
-
-    return () => clearInterval(timer);
-  }, [testimonials.length, intervalMs]);
 
   const active = testimonials[activeIndex];
 

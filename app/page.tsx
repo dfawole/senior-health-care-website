@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import Hero from "@/components/Hero";
 import TrustRow from "@/components/TrustRow";
 import Section from "@/components/Section";
-import ServicesMarquee from "@/components/ServicesMarquee";
+import ServicesCarousel from "@/components/ServicesCarousel";
 import CTAButton from "@/components/CTAButton";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import StatsRow from "@/components/StatsRow";
@@ -33,7 +33,11 @@ export default function HomePage() {
         title={homeContent.services.title}
         description={homeContent.services.description}
       >
-        <ServicesMarquee items={homeContent.services.items} />
+        <ServicesCarousel
+          items={homeContent.services.items}
+          scrollLeftLabel={homeContent.services.scrollLeftLabel}
+          scrollRightLabel={homeContent.services.scrollRightLabel}
+        />
       </Section>
       <Section>
         <div className="border-primary/10 mx-auto flex max-w-2xl flex-col items-center gap-4 rounded-lg border bg-white p-10 text-center">

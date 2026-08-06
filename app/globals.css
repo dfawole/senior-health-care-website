@@ -70,20 +70,17 @@ body {
   animation: gentle-bounce 2s ease-in-out infinite;
 }
 
-/* The track renders two back-to-back copies of the same card set (see
-   ServicesMarquee.tsx), so translating exactly -50% moves precisely one
-   full set-width — the loop point is invisible. */
-@keyframes marquee {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
+/* Hides the native scrollbar on the manually-navigated services carousel
+   (ServicesCarousel.tsx) — arrow buttons are the intended scroll
+   affordance; native drag/swipe/wheel scrolling still works underneath,
+   this only hides the bar itself. */
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
-.animate-marquee {
-  animation: marquee 36s linear infinite;
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
 }
 
 /* Global kill-switch for CSS-driven transitions/animations (hover states,
