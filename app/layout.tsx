@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ChatWidget from "@/components/ChatWidget";
+import LocalBusinessSchema from "@/components/LocalBusinessSchema";
 import { siteContent } from "@/content/site";
 import { homeContent } from "@/content/home";
 
@@ -20,12 +21,10 @@ const fraunces = Fraunces({
 
 const homeOgTitle = homeContent.hero.title.replace(/\n/g, " ");
 
-// TODO: swap for the real production domain before launch (also remove the
-// `robots: noindex` below at the same time).
-const siteUrl = "https://www.seniorhealthcare.org.uk";
-
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
+  // TODO: swap for the real production domain before launch (also remove
+  // the `robots: noindex` below at the same time).
+  metadataBase: new URL(siteContent.url),
   title: {
     default: siteContent.name,
     template: `%s | ${siteContent.name}`,
@@ -61,6 +60,7 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="flex min-h-full flex-col" suppressHydrationWarning>
+        <LocalBusinessSchema />
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />

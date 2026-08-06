@@ -1,13 +1,29 @@
 export const siteContent = {
   name: "Senior Health Care",
   tagline: "Trusted domiciliary care across the UK.",
+  url: "https://www.seniorhealthcare.org.uk",
   phone: {
-    display: "0800 123 4567",
-    href: "tel:+448001234567",
+    display: "020 8310 2077",
+    href: "tel:+442083102077",
   },
   email: {
     display: "admin@seniorhealthcare.org.uk",
     href: "mailto:admin@seniorhealthcare.org.uk",
+  },
+  address: {
+    line1: "Unit 6, 145 Nathan Way",
+    city: "London",
+    region: "England",
+    postalCode: "SE28 0AB",
+    country: "United Kingdom",
+    countryCode: "GB",
+    display: "Unit 6, 145 Nathan Way, London, England, SE28 0AB",
+  },
+  hours: {
+    display: "Monday–Friday, 9:00am–5:00pm",
+    days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+    opens: "09:00",
+    closes: "17:00",
   },
   cqc: {
     headerBadgeLabel: "CQC",

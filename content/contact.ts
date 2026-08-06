@@ -17,4 +17,9 @@ export const contactContent = {
     text: "Send Enquiry",
     subtext: "We'll be in touch as soon as we can.",
   },
+
+  office: {
+    sectionTitle: "Visit or Call Us",
+    mapTitle: "Map showing our office location",
+  },
 };

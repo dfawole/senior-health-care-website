@@ -46,6 +46,7 @@ const COLORS = {
   primary: "#1b2130",
   accent: "#c1592e",
   text: "#1a1a1a",
+  cream: "#f4efe6",
 };
 
 // react-pdf's Node renderer ships only the base14 PDF fonts (Helvetica,
@@ -58,22 +59,48 @@ const COLORS = {
 // "clean serif fallback" allowance.
 const styles = StyleSheet.create({
   page: {
-    padding: 56,
     fontFamily: "Helvetica",
     fontSize: 11,
     color: COLORS.text,
   },
-  logo: { width: 90, marginBottom: 28 },
-  heading: {
+  // Full-bleed band — the page itself carries no padding so this can span
+  // edge-to-edge; body/footer apply their own horizontal padding instead.
+  headerBand: {
+    backgroundColor: COLORS.primary,
+    paddingHorizontal: 56,
+    paddingTop: 26,
+    paddingBottom: 18,
+  },
+  logo: { width: 60, marginBottom: 12 },
+  headingOnBand: {
     fontFamily: "Times-Bold",
-    fontSize: 26,
-    color: COLORS.primary,
-    marginBottom: 14,
+    fontSize: 24,
+    color: "#ffffff",
+  },
+  accentRule: {
+    height: 2,
+    width: 64,
+    backgroundColor: COLORS.accent,
+    marginTop: 10,
+  },
+  // Low-opacity monogram, single placement, sat behind the footer so it
+  // never competes with the body text above it.
+  watermark: {
+    position: "absolute",
+    bottom: 100,
+    right: 40,
+    width: 100,
+    opacity: 0.07,
+  },
+  body: {
+    paddingHorizontal: 56,
+    paddingTop: 20,
+    paddingBottom: 96,
   },
   intro: {
-    fontSize: 11.5,
-    lineHeight: 1.6,
-    marginBottom: 22,
+    fontSize: 11,
+    lineHeight: 1.5,
+    marginBottom: 16,
     color: COLORS.text,
   },
   sectionTitle: {
@@ -82,10 +109,10 @@ const styles = StyleSheet.create({
     color: COLORS.accent,
     textTransform: "uppercase",
     letterSpacing: 1,
-    marginTop: 16,
-    marginBottom: 10,
+    marginTop: 12,
+    marginBottom: 8,
   },
-  listItem: { flexDirection: "row", marginBottom: 7 },
+  listItem: { flexDirection: "row", marginBottom: 5 },
   bullet: { width: 14, color: COLORS.primary, fontFamily: "Helvetica-Bold" },
   listText: { flex: 1, lineHeight: 1.5 },
   footer: {
@@ -100,6 +127,7 @@ const styles = StyleSheet.create({
     color: COLORS.primary,
   },
   footerName: { fontFamily: "Helvetica-Bold", marginBottom: 3 },
+  footerLine: { marginBottom: 2 },
 });
 
 function BulletList({ items }: { items: string[] }) {
@@ -118,9 +146,11 @@ function BulletList({ items }: { items: string[] }) {
 function ServiceGuideDocument({
   content,
   logoPath,
+  watermarkPath,
 }: {
   content: ServicePageContent;
   logoPath: string;
+  watermarkPath: string;
 }) {
   return (
     <Document
@@ -129,25 +159,37 @@ function ServiceGuideDocument({
     >
       <Page size="A4" style={styles.page}>
         {/* @react-pdf/renderer's Image is a PDF drawing primitive, not an
-            HTML img — jsx-a11y's alt-text rule doesn't apply here. */}
+            HTML img — jsx-a11y's alt-text rule doesn't apply to either
+            image below. */}
         {/* eslint-disable-next-line jsx-a11y/alt-text */}
-        <Image src={logoPath} style={styles.logo} />
-        <Text style={styles.heading}>{content.serviceName}</Text>
-        <Text style={styles.intro}>{content.heroSubtext}</Text>
+        <Image src={watermarkPath} style={styles.watermark} fixed />
 
-        <Text style={styles.sectionTitle}>
-          Is {content.serviceName} Right for You?
-        </Text>
-        <BulletList items={content.eligibilityPoints} />
+        <View style={styles.headerBand}>
+          {/* eslint-disable-next-line jsx-a11y/alt-text */}
+          <Image src={logoPath} style={styles.logo} />
+          <Text style={styles.headingOnBand}>{content.serviceName}</Text>
+          <View style={styles.accentRule} />
+        </View>
 
-        <Text style={styles.sectionTitle}>What&apos;s Included</Text>
-        <BulletList items={content.includedItems} />
+        <View style={styles.body}>
+          <Text style={styles.intro}>{content.heroSubtext}</Text>
+
+          <Text style={styles.sectionTitle}>
+            Is {content.serviceName} Right for You?
+          </Text>
+          <BulletList items={content.eligibilityPoints} />
+
+          <Text style={styles.sectionTitle}>What&apos;s Included</Text>
+          <BulletList items={content.includedItems} />
+        </View>
 
         <View style={styles.footer} fixed>
           <Text style={styles.footerName}>{siteContent.name}</Text>
-          <Text>
+          <Text style={styles.footerLine}>{siteContent.address.display}</Text>
+          <Text style={styles.footerLine}>
             {siteContent.phone.display} · {siteContent.email.display}
           </Text>
+          <Text>{siteContent.url.replace(/^https?:\/\//, "")}</Text>
         </View>
       </Page>
     </Document>
@@ -164,11 +206,21 @@ async function main() {
     "logo",
     "shc_logo_full.png",
   );
+  const watermarkPath = path.join(
+    process.cwd(),
+    "public",
+    "logo",
+    "shc_icon_transparent.png",
+  );
 
   for (const content of services) {
     const outputPath = path.join(outputDir, `${content.slug}.pdf`);
     await renderToFile(
-      <ServiceGuideDocument content={content} logoPath={logoPath} />,
+      <ServiceGuideDocument
+        content={content}
+        logoPath={logoPath}
+        watermarkPath={watermarkPath}
+      />,
       outputPath,
     );
     console.log(`Generated ${path.relative(process.cwd(), outputPath)}`);
