@@ -2,8 +2,8 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useReducedMotion } from "framer-motion";
-import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Card, type CardItem } from "@/components/CardGrid";
+import CarouselArrowButton from "@/components/CarouselArrowButton";
 
 type ServicesCarouselProps = {
   items: CardItem[];
@@ -14,9 +14,6 @@ type ServicesCarouselProps = {
 // Card width (w-80, see CardGrid) + the row's gap-8 — how far one click
 // advances, so each click reveals roughly one new card at the edge.
 const SCROLL_STEP = 320 + 32;
-
-const arrowButtonClasses =
-  "border-primary/10 text-primary hover:bg-background absolute top-1/2 z-10 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full border bg-white shadow-md transition-colors disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:bg-white";
 
 /** Manually-navigated row of service cards — no auto-play, so there is no
  * motion to pause (WCAG 2.2.2 Pause, Stop, Hide doesn't apply to
@@ -73,29 +70,21 @@ export default function ServicesCarousel({
         ))}
       </div>
 
-      <button
-        type="button"
+      <CarouselArrowButton
+        direction="left"
         onClick={() => scrollByStep(-1)}
         disabled={!canScrollLeft}
-        aria-label={scrollLeftLabel}
-        className={`${arrowButtonClasses} left-2`}
-      >
-        <ChevronLeft className="h-4 w-4" strokeWidth={1.5} aria-hidden="true" />
-      </button>
+        ariaLabel={scrollLeftLabel}
+        className="absolute top-1/2 left-2 -translate-y-1/2"
+      />
 
-      <button
-        type="button"
+      <CarouselArrowButton
+        direction="right"
         onClick={() => scrollByStep(1)}
         disabled={!canScrollRight}
-        aria-label={scrollRightLabel}
-        className={`${arrowButtonClasses} right-2`}
-      >
-        <ChevronRight
-          className="h-4 w-4"
-          strokeWidth={1.5}
-          aria-hidden="true"
-        />
-      </button>
+        ariaLabel={scrollRightLabel}
+        className="absolute top-1/2 right-2 -translate-y-1/2"
+      />
     </div>
   );
 }

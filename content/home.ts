@@ -134,6 +134,8 @@ export const homeContent = {
   testimonials: {
     eyebrow: "Testimonials",
     title: "What Families Say",
+    previousLabel: "Show previous testimonial",
+    nextLabel: "Show next testimonial",
     items: [
       {
         quote:

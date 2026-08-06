@@ -64,7 +64,11 @@ export default function HomePage() {
         title={homeContent.testimonials.title}
         tone="muted"
       >
-        <TestimonialsCarousel testimonials={homeContent.testimonials.items} />
+        <TestimonialsCarousel
+          testimonials={homeContent.testimonials.items}
+          previousLabel={homeContent.testimonials.previousLabel}
+          nextLabel={homeContent.testimonials.nextLabel}
+        />
       </Section>
       <CTABanner {...homeContent.ctaBanner} />
     </>
