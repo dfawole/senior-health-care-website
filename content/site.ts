@@ -44,13 +44,9 @@ export const siteContent = {
     heading: "Care Needs Navigator",
     greeting:
       "Hi, I'm here to help you find the right care. What can I help with today?",
-    inputPlaceholder: "Type your message…",
     toggleLabel: "Toggle chat widget",
     closeLabel: "Close chat",
     sendLabel: "Send",
-    thinkingLabel: "Typing…",
-    errorFallback: (phone: string) =>
-      `Sorry, something went wrong on our end. Please call us directly on ${phone} and our team will be happy to help.`,
   },
   errorPage: {
     heading: "Something went wrong",
