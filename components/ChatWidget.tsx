@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { MessageCircle, PhoneCall } from "lucide-react";
 import { siteContent } from "@/content/site";
 import { chatFlow, type ChatMenuOption } from "@/content/chatFlow";
@@ -28,6 +29,7 @@ const backButtonClasses =
 let nextId = 1;
 
 export default function ChatWidget() {
+  const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [entries, setEntries] = useState<ChatEntry[]>([]);
   const messagesEndRef = useRef<HTMLDivElement>(null);
@@ -37,6 +39,27 @@ export default function ChatWidget() {
       messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
     }
   }, [open, entries]);
+
+  // No conversation state is persisted anywhere (no localStorage/
+  // sessionStorage) — it's plain in-memory React state, so clearing it
+  // here is a full reset. This is the single place that does that reset,
+  // reacting to `open` becoming false however that happens (close button,
+  // toggling the bubble while open, or the route-change effect below) —
+  // so every close path resets the same way with no risk of one path
+  // being missed.
+  useEffect(() => {
+    if (!open) {
+      setEntries([]);
+    }
+  }, [open]);
+
+  // ChatWidget lives in the root layout, so it doesn't unmount on
+  // client-side navigation — without this, it would stay open (and keep
+  // its conversation) across a route change. Same pattern Header.tsx uses
+  // to close its own dropdowns on navigation.
+  useEffect(() => {
+    setOpen(false);
+  }, [pathname]);
 
   function pushTurn(userText: string, screen: Screen, service?: CardItem) {
     setEntries((current) => [
