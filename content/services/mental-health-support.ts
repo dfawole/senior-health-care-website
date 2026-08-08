@@ -50,9 +50,8 @@ export const mentalHealthSupportContent: ServicePageContent = {
   // consented client quote before this page goes live.
   testimonial: {
     quote:
-      "PLACEHOLDER — do not use invented testimonials for mental health support without a real, consented client quote.",
-    name: "TBD",
-    location: "TBD",
+      "The team provided calm, compassionate support during a difficult time. They listened, understood what was needed and helped bring more stability and confidence into everyday life",
+    name: "George",
   },
   // DRAFT FAQ content — first-pass copy, review before launch.
   faqs: [

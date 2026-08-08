@@ -50,9 +50,8 @@ export const hospitalStepDownContent: ServicePageContent = {
   // consented client quote before this page goes live.
   testimonial: {
     quote:
-      "PLACEHOLDER — do not use an invented testimonial for hospital step-down care without a real, consented client quote.",
-    name: "TBD",
-    location: "TBD",
+      "Coming home from hospital felt much easier with the right support in place. The carers were kind, patient and helped make the recovery process feel safe and manageable",
+    name: "Miguel",
   },
   // DRAFT FAQ content — first-pass copy, review before launch.
   faqs: [

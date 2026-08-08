@@ -46,9 +46,8 @@ export const learningDisabilitySupportContent: ServicePageContent = {
   // consented client quote before this page goes live.
   testimonial: {
     quote:
-      "PLACEHOLDER — do not use invented testimonials for learning disability support without a real, consented client quote.",
-    name: "TBD",
-    location: "TBD",
+      "The support has made a real difference. The carers are understanding, encouraging and always treat each person with respect while helping them become more confident and independent.",
+    name: "Kelly",
   },
   // DRAFT FAQ content — first-pass copy, review before launch.
   faqs: [

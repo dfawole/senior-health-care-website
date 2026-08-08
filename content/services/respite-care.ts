@@ -47,7 +47,6 @@ export const respiteCareContent: ServicePageContent = {
     quote:
       "I hadn't left the house alone in eight months. A week of respite gave me my sister's wedding back.",
     name: "Deborah",
-    location: "Cardiff",
   },
   // DRAFT FAQ content — first-pass copy, review before launch.
   faqs: [

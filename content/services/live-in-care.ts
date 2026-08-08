@@ -51,7 +51,6 @@ export const liveInCareContent: ServicePageContent = {
     quote:
       "We looked at care homes. This meant Dad kept his own bed, his own garden, his own life.",
     name: "Priya",
-    location: "Birmingham",
   },
   // DRAFT FAQ content — first-pass copy, review before launch.
   faqs: [

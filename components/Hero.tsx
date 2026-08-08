@@ -5,6 +5,8 @@ import Image from "next/image";
 import { ChevronDown } from "lucide-react";
 import CTAButton from "@/components/CTAButton";
 import ListenButton from "@/components/ListenButton";
+import ShcMonogram from "@/components/ShcMonogram";
+import { siteContent } from "@/content/site";
 
 export type HeroCta = {
   label: string;
@@ -109,13 +111,40 @@ export default function Hero({
             {eyebrow}
           </p>
         )}
-        <h1 className="font-serif text-4xl font-medium tracking-normal sm:text-5xl md:text-6xl">
-          {title.split("\n").map((line, index) => (
-            <span key={index} className="block">
-              {line}
-            </span>
-          ))}
-        </h1>
+        <div className="relative">
+          <h1 className="font-serif text-4xl font-medium tracking-normal sm:text-5xl md:text-6xl">
+            {title.split("\n").map((line, index) => (
+              <span key={index} className="block">
+                {line}
+              </span>
+            ))}
+          </h1>
+
+          {/* Full SHC lockup (icon + wordmark) for the solid-navy fallback
+              only — purely decorative (ShcMonogram already sets
+              aria-hidden), anchored to this heading's own bottom edge
+              (not a fixed section offset) so it sits directly beneath the
+              title and stays clear of it on every page regardless of how
+              many lines the title wraps to. z-0 keeps it behind the z-10
+              content above; 10% opacity is high enough for the wordmark to
+              read as actual text rather than pure texture, sized large
+              instead of pushed brighter to keep it legible without
+              competing with the heading itself. */}
+          {!photo && (
+            <div
+              className="pointer-events-none absolute top-full left-1/2 z-0 flex -translate-x-1/2 flex-col items-center gap-2 pt-6 opacity-10"
+              aria-hidden="true"
+            >
+              <ShcMonogram
+                variant="light"
+                className="h-[clamp(3rem,9vw,7rem)] w-[clamp(3rem,9vw,7rem)]"
+              />
+              <span className="font-serif text-[clamp(2rem,7vw,5.5rem)] font-semibold tracking-wide whitespace-nowrap text-white">
+                {siteContent.name}
+              </span>
+            </div>
+          )}
+        </div>
         {subhead && (
           <div className="flex max-w-xl items-center gap-2">
             <p className="text-lg text-white/85">{subhead}</p>

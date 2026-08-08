@@ -47,7 +47,6 @@ export const dementiaCareContent: ServicePageContent = {
     quote:
       "Same face, same voice, every visit. That consistency is the only thing that's kept Dad settled this year.",
     name: "Michael",
-    location: "Glasgow",
   },
   // DRAFT FAQ content — first-pass copy, review before launch.
   faqs: [

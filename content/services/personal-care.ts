@@ -51,7 +51,6 @@ export const personalCareContent: ServicePageContent = {
     quote:
       "Mum was nervous about someone helping her get dressed. Within a week, she asked for her carer by name.",
     name: "Angela",
-    location: "Manchester",
   },
   // DRAFT FAQ content — first-pass copy, review before launch.
   faqs: [

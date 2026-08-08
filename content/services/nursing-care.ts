@@ -51,7 +51,6 @@ export const nursingCareContent: ServicePageContent = {
     quote:
       "After my husband's stroke, I didn't know where to start. The nursing team stepped in and just... handled it.",
     name: "Ruth",
-    location: "Edinburgh",
   },
   // DRAFT FAQ content — first-pass copy, review before launch.
   faqs: [

@@ -18,7 +18,6 @@ import { homeContent } from "@/content/home";
 export type ServiceTestimonial = {
   quote: string;
   name: string;
-  location: string;
 };
 
 export type ServicePageContent = {
@@ -153,7 +152,6 @@ export default function ServicePageLayout({
           <TestimonialCard
             quote={testimonial.quote}
             author={testimonial.name}
-            role={testimonial.location}
           />
         </div>
       </Section>
